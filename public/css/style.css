@@ -1,0 +1,40 @@
+div.container-fluid{ /*/Container do sistema externo/*/
+	background-color: #ffce3b;
+}
+div.container-fluid.sys{ /*/Container do sistema interno/*/
+	background-color: #a3aeba;
+}
+div.vagas{ /*/Div das Vagas no sistema externo/*/
+	margin-top: 5%;
+}
+thead.vagas-title{ /*/Titulo das Vagas no sistema externo/*/
+	font-weight: bolder;
+}
+div.titulo{ /*/Div do título no sistema externo/*/
+	padding-left: 15%;
+	background-image: url('../img/estagio.jpg');
+	background-repeat: no-repeat;
+	background-size: 40%;
+}
+div.login{ /*/Login de entrada externo->interno/*/
+	margin-top: 5%;
+}
+h1.master-titulo{ /*/Titulo/*/
+	font-size: 76px;
+	text-shadow: 2px 2px rgba(255,255,255,0.7);
+}
+
+h2.master-subtitulo{ /*/Subtitulo/*/
+	text-shadow: 2px 2px rgba(255,255,255,0.7);
+}
+
+div.sys{
+	text-align: center;
+}
+
+div.content{
+	background-color: white;
+	margin: 1%;
+	text-align: left;
+	padding:2%;
+}
