@@ -19,19 +19,19 @@ Menu
     <div class="row">
         <br>
         <div class="col-md-4">
-            <a href="empresa.html" class="thumbnail">
+            <a href="empresas" class="thumbnail">
                 <img src="img/empresa.png" alt="Empresas">
                 <h3>Empresas</h3>
             </a>            
         </div>
         <div class="col-md-4">
-            <a href="aluno.html" class="thumbnail">
+            <a href="alunos" class="thumbnail">
                 <img src="img/aluno.png" alt="Alunos">
                 <h3>Alunos</h3>
             </a>
         </div>
         <div class="col-md-4">
-            <a href="#" class="thumbnail">
+            <a href="relatorios" class="thumbnail">
                 <img src="img/relatorio.png" alt="Relatórios">
                 <h3>Relatórios</h3>
             </a>
@@ -39,19 +39,19 @@ Menu
     </div>
     <div class="row">
         <div class="col-md-4">
-            <a href="#" class="thumbnail">
+            <a href="vagas" class="thumbnail">
                 <img src="img/vaga.png" alt="Vagas Abertas">
                 <h3>Vagas Abertas</h3>
             </a>            
         </div>
         <div class="col-md-4">
-            <a href="#" class="thumbnail">
-                <img src="img/coordenador.png" alt="Coordenadores">
+            <a href="cursos" class="thumbnail">
+                <img src="img/coordenador.png" alt="Cursos">
                 <h3>Cursos</h3>
             </a>
         </div>
         <div class="col-md-4">
-            <a href="#" class="thumbnail">
+            <a href="sair" class="thumbnail">
                 <img src="img/sair.png" alt="Sair">
                 <h3>Sair</h3>
             </a>
