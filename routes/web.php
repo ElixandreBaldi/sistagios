@@ -31,6 +31,10 @@ Route::get('/cursos', 'CursosController@show');
 
 Route::get('/professores', 'CursosController@showProfessores');
 
+Route::post('/professores/criar', 'CursosController@runCreateProfessor');
+
 Route::get('/usuarios/criar', 'UsuariosController@create');
 
 Route::post('/usuarios/criar', 'UsuariosController@runCreate');
+
+
