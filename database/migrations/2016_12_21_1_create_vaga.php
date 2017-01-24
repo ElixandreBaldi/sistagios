@@ -20,6 +20,7 @@ class CreateVaga extends Migration
             $table->string('setor');
             $table->decimal('bolsa',5,2);
             $table->boolean('aberta');
+            $table->timestamps();
             $table->integer('idCurso')->unsigned();
             $table->foreign('idCurso')->references('id')->on('curso');                
             $table->integer('idEmpresa')->unsigned();

@@ -21,7 +21,8 @@ class CreateEmpresa extends Migration
             $table->string('representante');
             $table->string('telefone1');
             $table->string('telefone2');
-            $table->string('email')->unique();                        
+            $table->string('email')->unique();
+            $table->timestamps();                        
             $table->integer('idEndereco')->unsigned();
             $table->foreign('idEndereco')->references('id')->on('endereco');
         });

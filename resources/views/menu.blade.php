@@ -59,7 +59,7 @@ Menu
     </div>
     
     <!-- MENU TERMINA AQUI -->
-    <p><br><br><br><a href="mailto:luizguilhermefr@gmail.com,victor_pozzan@hotmail.com,elixandre_michael@hotmail.com">Reportar Erro</a></p>
+    <p><br><br><br><a href="mailto:luizguilhermefr@gmail.com,victor_pozzan@hotmail.com,elixandre_michael@hotmail.com">Reportar Erro</a> - <a href="usuarios/criar">Criar Usuário</a></p>
 </div>
 <!-- CONTEUDO TERMINA AQUI -->
 @endsection

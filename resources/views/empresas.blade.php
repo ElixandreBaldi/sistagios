@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('titulo')
-Menu
+Empresas
 @endsection
 
 @section('conteudo')
@@ -37,7 +37,7 @@ Menu
     </div>
     <div class="row content">
     <button onclick="window.location.href='/menu'" class="btn btn-primary"><span class="glyphicon glyphicon-circle-arrow-left"></span> Voltar</button>
-        <button onclick="window.location.href='/empresas/nova'" class="btn btn-primary"><span class="glyphicon glyphicon-asterisk"></span> Cadastrar nova</button>
+        <button onclick="window.location.href='/empresas/criar'" class="btn btn-primary"><span class="glyphicon glyphicon-asterisk"></span> Cadastrar nova</button>
         <h3 class="titulo_area">Empresas</h3>
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Buscar...">

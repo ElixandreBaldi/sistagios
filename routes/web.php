@@ -28,3 +28,9 @@ Route::get('/relatorios', 'RelatoriosController@show');
 Route::get('/vagas', 'VagasController@show');
 
 Route::get('/cursos', 'CursosController@show');
+
+Route::get('/professores', 'CursosController@showProfessores');
+
+Route::get('/usuarios/criar', 'UsuariosController@create');
+
+Route::post('/usuarios/criar', 'UsuariosController@runCreate');
