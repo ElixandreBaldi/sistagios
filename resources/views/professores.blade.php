@@ -32,18 +32,12 @@ Cursos
             <h2 class="master-subtitulo">Sistema Gerenciador de Estágios</h2>
         </div>
     </div>
-
     <div class="row content">
-        <div class="nav">
-            
-            <button onclick="window.location.href='/menu'" class="btn btn-primary"><span class="glyphicon glyphicon-circle-arrow-left"></span> Voltar</button>
-            <button onclick="window.location.href='/curso/novo'" class="btn btn-primary"><span class="glyphicon glyphicon-asterisk"></span> Cadastrar novo</button>
+        <button onclick="window.location.href='/menu'" class="btn btn-primary"><span class="glyphicon glyphicon-circle-arrow-left"></span> Voltar</button>
+        <button onclick="window.location.href='/curso/novo'" class="btn btn-primary"><span class="glyphicon glyphicon-asterisk"></span> Cadastrar novo</button>
+        <button onclick="window.location.href='/professor/novo'" class="btn btn-primary"><span class="glyphicon glyphicon-asterisk"></span> Cadastrar Professor</button>
+        <button onclick="window.location.href='/professor/novo'" class="btn btn-primary"><span class="glyphicon glyphicon-asterisk"></span> Professores</button>
 
-            
-            <button onclick="window.location.href='/professor/novo'" class="btn btn-primary"><span class="glyphicon glyphicon-asterisk"></span> Cadastrar Professor</button>
-            <button onclick="window.location.href='/professor/novo'" class="btn btn-primary"><span class="glyphicon glyphicon-apple"></span> Ver Professores</button>
-
-        </div>
         <h3 class="titulo_area">Cursos</h3>
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Buscar...">

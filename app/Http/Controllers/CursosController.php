@@ -13,4 +13,8 @@ class CursosController extends Controller
     {
     	return view('/cursos');
     }
+    public function showProfessores()
+    {
+    	return view('/professores');
+    }
 }
