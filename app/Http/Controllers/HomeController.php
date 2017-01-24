@@ -25,4 +25,14 @@ class HomeController extends Controller
     {
         return view('index');
     }
+
+    public function menu()
+    {
+        return view('menu');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+    }
 }

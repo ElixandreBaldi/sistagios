@@ -8,8 +8,9 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
+    <title>SiStagios - @yield('titulo')</title>
 </head>
 <body>
-    @yield('content')
+    @yield('conteudo')
 </body>
 </html>
