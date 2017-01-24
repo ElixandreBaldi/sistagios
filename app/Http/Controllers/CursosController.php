@@ -28,4 +28,8 @@ class CursosController extends Controller
     		]);
         return redirect('/professores');
     }
+
+    public function editarProfessores($id){
+        
+    }
 }

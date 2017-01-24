@@ -41,7 +41,7 @@ Cursos
 
             
             <button onclick="window.location.href='/professor/novo'" class="btn btn-primary"><span class="glyphicon glyphicon-asterisk"></span> Cadastrar Professor</button>
-            <button onclick="window.location.href='/professor/novo'" class="btn btn-primary"><span class="glyphicon glyphicon-apple"></span> Ver Professores</button>
+            <button onclick="window.location.href='/professores'" class="btn btn-primary"><span class="glyphicon glyphicon-apple"></span> Ver Professores</button>
 
         </div>
         <h3 class="titulo_area">Cursos</h3>

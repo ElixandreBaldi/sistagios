@@ -20,6 +20,6 @@ class UsuariosController extends Controller
     			'username' => $request->username,
     			'password' => bcrypt($request->password)
     		]);
-        return redirect()->action('HomeController@menu');
+        return redirect('/menu');
     }
 }
