@@ -14,7 +14,7 @@ class CreateCurso extends Migration
 
     public function up()
     {
-        Schema::create('curso', function (Blueprint $table) {
+        Schema::create('cursos', function (Blueprint $table) {
             $table->increments('id');            
             $table->string('nome');
             $table->char('turno',1);
@@ -29,6 +29,6 @@ class CreateCurso extends Migration
      */
     public function down()
     {
-        Schema::drop('curso');
+        Schema::drop('cursos');
     }
 }

@@ -14,7 +14,7 @@ class CreateEstagio extends Migration
 
     public function up()
     {
-        Schema::create('estagio', function (Blueprint $table) {
+        Schema::create('estagios', function (Blueprint $table) {
             $table->increments('id');            
             $table->string('supervisor');
             $table->integer('idVaga')->unsigned();
@@ -30,6 +30,6 @@ class CreateEstagio extends Migration
      */
     public function down()
     {
-        Schema::drop('estagio');
+        Schema::drop('estagios');
     }
 }

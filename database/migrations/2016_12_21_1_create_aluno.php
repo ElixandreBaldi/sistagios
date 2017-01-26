@@ -14,7 +14,7 @@ class CreateAluno extends Migration
 
     public function up()
     {
-        Schema::create('aluno', function (Blueprint $table) {
+        Schema::create('alunos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
             $table->string('rg');
@@ -33,6 +33,6 @@ class CreateAluno extends Migration
      */
     public function down()
     {
-        Schema::drop('aluno');
+        Schema::drop('alunos');
     }
 }

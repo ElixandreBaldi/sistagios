@@ -14,7 +14,7 @@ class CreateEndereco extends Migration
 
     public function up()
     {
-        Schema::create('endereco', function (Blueprint $table) {
+        Schema::create('enderecos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('CEP');
             $table->string('rua');
@@ -32,6 +32,6 @@ class CreateEndereco extends Migration
      */
     public function down()
     {
-        Schema::drop('endereco');
+        Schema::drop('enderecos');
     }
 }

@@ -14,7 +14,7 @@ class CreateVaga extends Migration
 
     public function up()
     {
-        Schema::create('vaga', function (Blueprint $table) {
+        Schema::create('vagas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('descricao');
             $table->string('setor');
@@ -34,6 +34,6 @@ class CreateVaga extends Migration
      */
     public function down()
     {
-        Schema::drop('vaga');
+        Schema::drop('vagas');
     }
 }
