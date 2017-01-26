@@ -35,13 +35,7 @@ Professores
 
 
 
-<div class="container-fluid sys">
-    <div class="row">
-        <div class="col-md-12 sys">
-            <h1 class="master-titulo">SiStagios</h1>
-            <h2 class="master-subtitulo">Sistema Gerenciador de Estágios</h2>
-        </div>
-    </div>
+
     <div class="row content">
         <button onclick="window.location.href='/menu'" class="btn btn-primary"><span class="glyphicon glyphicon-circle-arrow-left"></span> Voltar</button>
         <button data-toggle="modal" data-target="#modal-cadastrar" class="btn btn-primary"><span class="glyphicon glyphicon-asterisk"></span> Cadastrar novo</button>
@@ -84,7 +78,7 @@ Professores
         </div>
     </div>
     <!-- MENU TERMINA AQUI -->
-    <p><br><br><br><a href="mailto:luizguilhermefr@gmail.com,victor_pozzan@hotmail.com,elixandre_michael@hotmail.com">Reportar Erro</a></p>
-</div>
+    
+
 <!-- CONTEUDO TERMINA AQUI -->
 @endsection
