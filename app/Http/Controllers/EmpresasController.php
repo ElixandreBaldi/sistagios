@@ -33,10 +33,11 @@ class EmpresasController extends Controller
 
     public function runEdit(Request $request, Empresa $empresa)
     {
-    	$empresa->update([
+        echo 'ss';
+    	/*$empresa->update([
     		// data
     	]);
-      return redirect('/empresas/' + $empresa->id);
+      return redirect('/empresas/' + $empresa->id);*/
     }
 
     public function runDelete(Request $request, Empresa $empresa)

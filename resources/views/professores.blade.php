@@ -5,37 +5,32 @@ Professores
 @endsection
 
 @section('conteudo')
-<div id="modal-cadastrar" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Cadastrar Professor</h4>
-            </div>
-            <form role="form" method="POST" action="/professores/criar">
-                {{ csrf_field() }}
-                <div class="modal-body col-md-12">
-                    <div class="form-group col-md-12">
-                        <label for="nome">NOME</label>
-                        <input type="text" class="form-control" id="nome" name="nome">
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label for="email">E-MAIL</label>
-                        <input type="text" class="form-control" id="email" name="email">
-                    </div>                
-                </div>            
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-default" >Enviar</button>
+    <div id="modal-cadastrar" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Cadastrar Professor</h4>
                 </div>
-            </form>
+                <form role="form" method="POST" action="/professores/criar">
+                    {{ csrf_field() }}
+                    <div class="modal-body col-md-12">
+                        <div class="form-group col-md-12">
+                            <label for="nome">NOME</label>
+                            <input type="text" class="form-control" id="nome" name="nome">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="email">E-MAIL</label>
+                            <input type="text" class="form-control" id="email" name="email">
+                        </div>                
+                    </div>            
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-default" >Enviar</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-
-
-
-
-
     <div class="row content">
         <button onclick="window.location.href='/menu'" class="btn btn-primary"><span class="glyphicon glyphicon-circle-arrow-left"></span> Voltar</button>
         <button data-toggle="modal" data-target="#modal-cadastrar" class="btn btn-primary"><span class="glyphicon glyphicon-asterisk"></span> Cadastrar novo</button>
@@ -78,7 +73,11 @@ Professores
         </div>
     </div>
     <!-- MENU TERMINA AQUI -->
-    
+    <script>
+        $( document ).ready(function() {
+            $("#modal-cadastrar").modal();
+        });
+    </script>
 
 <!-- CONTEUDO TERMINA AQUI -->
 @endsection

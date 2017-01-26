@@ -59,7 +59,7 @@ Route::get('/professores', 'CursosController@showProfessores');
 Route::post('/professores/criar', 'CursosController@runCreateProfessor');
 Route::get('professores/{professor}', 'CursosController@showOneProfessor');
 
-Route::post('professores/{id}/editar', 'CursosController@runCreateProfessores');
+Route::post('professores/{professor}/editar', 'CursosController@runEditProfessor');
 
 /**
 * usuários
