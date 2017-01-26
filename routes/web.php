@@ -56,10 +56,10 @@ Route::get('/cursos', 'CursosController@show');
 */
 
 Route::get('/professores', 'CursosController@showProfessores');
-Route::post('/professores/criar', 'CursosController@runCreateProfessor');
 Route::get('professores/{professor}', 'CursosController@showOneProfessor');
-
+Route::post('/professores/criar', 'CursosController@runCreateProfessor');
 Route::post('professores/{professor}/editar', 'CursosController@runEditProfessor');
+Route::post('professores/{professor}/excluir', 'CursosController@runDeleteProfessor');
 
 /**
 * usuários
