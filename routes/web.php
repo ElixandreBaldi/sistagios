@@ -21,11 +21,11 @@ Route::get('/menu', 'HomeController@menu');
 */
 
 Route::get('/empresas', 'EmpresasController@show');
+Route::get('/empresas/criar', 'EmpresasController@create');
+Route::post('/empresas/criar', 'EmpresasController@runCreate');
 Route::get('/empresas/{id}', 'EmpresasController@showOne');
 Route::post('/empresas/{id}/editar', 'EmpresasController@runEdit');
 Route::post('/empresas/{id}/excluir', 'EmpresasController@runDelete');
-Route::get('/empresas/criar', 'EmpresasController@create');
-Route::post('/empresas/criar', 'EmpresasController@runCreate');
 
 /**
 * Alunos

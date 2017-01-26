@@ -8,12 +8,24 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
-	  <script src="{{asset('js/jquery.min.js')}}"></script>
-	  <script src="{{asset('js/bootstrap.min.js')}}"></script>
-	  <script src="{{asset('js/main.js')}}"></script>
+	<script src="{{asset('js/jquery.min.js')}}"></script>
+	<script src="{{asset('js/bootstrap.min.js')}}"></script>
+	<script src="{{asset('js/main.js')}}"></script>
     <title>SiStagios - @yield('titulo')</title>
 </head>
 <body>
-    @yield('conteudo')
+<!-- CONTEUDO COMEÇA AQUI -->
+    <div class="container-fluid sys">
+    <!-- TITULO COMEÇA AQUI -->
+        <div class="row">
+            <div class="col-md-12 sys">
+                <h1 class="master-titulo">SiStagios</h1>
+                <h2 class="master-subtitulo">Sistema Gerenciador de Estágios</h2>
+            </div>
+        </div>
+    <!-- TITULO TERMINA AQUI -->
+        @yield('conteudo')
+        <p><br><br><a href="mailto:luizguilhermefr@gmail.com,victor_pozzan@hotmail.com,elixandre_michael@hotmail.com">Reportar Erro</a></p>
+    </div>
 </body>
 </html>
