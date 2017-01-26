@@ -29,6 +29,9 @@ class CursosController extends Controller
         return redirect('/professores');
     }
 
+    public function showOneProfessor(Professor $professor){
+        return view('mostrar_professor',compact('professor'));
+    }
     public function editarProfessores($id){
         
     }

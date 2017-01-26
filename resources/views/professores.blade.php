@@ -67,54 +67,19 @@ Professores
                     <th>
                         AÇÕES
                     </th>
-                </tr>                
-                <?php
-
-                    foreach ($professores as $dado){
-                    echo'
-                        <div id="modal-editar-'.($dado->id).'" class="modal fade" role="dialog">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Editar Professor</h4>
-                                    </div>
-                                    <form role="form" method="POST" action="/professores/editar">
-                                        {{ csrf_field() }}
-                                        <div class="modal-body col-md-12">
-                                            <div class="form-group col-md-12">
-                                                <label for="nome">NOME</label>
-                                                <input type="text" value="'.$dado->nome.'" class="form-control" id="nome" name="nome">
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <label for="email">E-MAIL</label>
-                                                <input type="text" value="'.$dado->email.'" class="form-control" id="email" name="email">
-                                            </div>                
-                                        </div>            
-                                        <div class="modal-footer">
-                                            <button type="submit" class="btn btn-default" >Enviar</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+                </tr>
+                @foreach ($professores as $professor)
+                <tr>                            
+                    <td>{{$professor -> nome}}</td>
+                    <td>{{$professor -> email}}</td>
+                    <td>
+                        <div class='btn-group' role='group'>                            
+                            <button class='btn btn-info' onclick="window.location.href='professores/{{$professor -> id}}'"><span class='glyphicon glyphicon-edit'></span> Editar</button>
+                            <button class='btn btn-danger' onclick='alert_delete()'><span class='glyphicon glyphicon-remove'></span> Excluir</button>
                         </div>
-                    ';  
-
-
-                    echo "
-                        <tr>                            
-                            <td>".($dado -> nome)."</td>
-                            <td>".($dado -> email)."</td>
-                            <td>
-                                <div class='btn-group' role='group'>                            
-                                    <button class='btn btn-info' data-toggle='modal' data-target='#modal-editar-".($dado->id)."'><span class='glyphicon glyphicon-edit'></span> Editar</button>
-                                    <button class='btn btn-danger' onclick='alert_delete()'><span class='glyphicon glyphicon-remove'></span> Excluir</button>
-                                </div>
-                            </td>
-                        </tr>
-                        ";
-                    }
-                ?>                        
+                    </td>
+                </tr>                
+                @endforeach                                                    
             </table>
         </div>
     </div>
