@@ -1,18 +1,12 @@
 @extends('layouts.app')
 
 @section('titulo')
-Professores
+Editar Professor
 @endsection
-
-@extends('layouts.app')
-
-@section('titulo')
-Empresa: Nome
-@endsection
-
+    
 @section('conteudo')
   <div class="row content">
-    <button onclick="window.location.href='/empresas'" class="btn btn-primary"><span class="glyphicon glyphicon-circle-arrow-left"></span> Voltar</button>
+    <button onclick="window.location.href='/professores'" class="btn btn-primary"><span class="glyphicon glyphicon-circle-arrow-left"></span> Voltar</button>
     <h3 class="titulo_area">Editar Professor {{$professor -> nome}}</h3>
     <form role="form" method="POST" action="/professores/{{$professor -> id}}/editar">
         {{ csrf_field() }}                   
