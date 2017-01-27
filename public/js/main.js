@@ -1,5 +1,4 @@
-function alert_delete(professor){
-	
+function delete(id, entity){
 	if (confirm("Tem certeza que deseja efetuar esta exclusão?")) {
 		$.ajaxSetup({
 			headers: {
@@ -8,11 +7,10 @@ function alert_delete(professor){
 		});
         $.ajax({
 			type: "POST",
-			url: "/professores/' + professor + '/excluir",
+			url: entity + id + "/excluir",
 			success: function (data) {
 				alert(data);
 			},
 		});
-    }
-    
+  }
 }
