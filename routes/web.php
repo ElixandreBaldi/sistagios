@@ -50,11 +50,11 @@ Route::get('/vagas', 'VagasController@show');
 */
 
 Route::get('/cursos', 'CursosController@show');
-Route::get('/cursos/{curso}', 'CursosController@showCurso');
-Route::get('/cursos/novo', 'CursosController@createCurso');
+Route::get('/cursos/criar', 'CursosController@createCurso');
 Route::post('/cursos/criar', 'CursosController@runCreateCurso');
-Route::post('cursos/{curso}/editar', 'CursosController@runEditCurso');
-Route::post('curso/{curso}/excluir', 'CursosController@runDeleteCurso');
+Route::get('/cursos/{curso}', 'CursosController@showOneCurso');
+Route::post('/cursos/{curso}/editar', 'CursosController@runEditCurso');
+Route::post('/curso/{curso}/excluir', 'CursosController@runDeleteCurso');
 
 /**
 * Cursos -> Professores

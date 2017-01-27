@@ -28,7 +28,7 @@ Cursos
     <div class="nav">
 
         <button onclick="window.location.href='/menu'" class="btn btn-primary"><span class="glyphicon glyphicon-circle-arrow-left"></span> Voltar</button>
-        <button onclick="window.location.href='/curso/novo'" class="btn btn-primary"><span class="glyphicon glyphicon-asterisk"></span> Cadastrar novo</button>
+        <button onclick="window.location.href='/cursos/criar'" class="btn btn-primary"><span class="glyphicon glyphicon-asterisk"></span> Cadastrar novo</button>
 
 
         <button onclick="window.location.href='/professores'" class="btn btn-primary"><span class="glyphicon glyphicon-asterisk"></span> Cadastrar Professor</button>
@@ -59,15 +59,16 @@ Cursos
                     AÇÕES
                 </th>
             </tr>
+            @foreach ($cursos as $curso)
             <tr>
                 <td>
-                    Informática
+                    {{$curso->nome}}
                 </td>
                 <td>
-                    Manhã
+                    {{$curso->turno}}
                 </td>
                 <td>
-                    Jandrey
+                    {{$curso->professor}}
                 </td>
                 <td>
                     <div class="btn-group" role="group">
@@ -77,6 +78,7 @@ Cursos
                     </div>
                 </td>
             </tr>
+            @endforeach
         </table>
     </div>
 </div>

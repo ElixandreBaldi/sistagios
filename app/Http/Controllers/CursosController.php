@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Professor;
-
+use App\Curso;
 class CursosController extends Controller
 {
     /*
@@ -13,13 +13,38 @@ class CursosController extends Controller
     */
     public function show()
     {
-        $cursos = Professor::all();
+        $cursos = Curso::all();
+        foreach($cursos as $curso){
+            $curso->professor = $curso->coordenador()->first()->value('nome');
+            switch ($curso->turno) {
+                case 1:
+                    $curso->turno = 'Manhã';
+                    break;
+                case 2:
+                    $curso->turno = 'Tarde';
+                    break;
+                case 3:
+                    $curso->turno = 'Noite';
+                    break;
+                
+            }
+        }
     	return view('/cursos',compact('cursos'));
     }
     public function createCurso(){
-        return view('/curso_criar')
-    }
+        $professores = Professor::select('id', 'nome') -> get();
 
+        return view('/curso_criar', compact('professores'));
+    }
+    public function runCreateCurso(Request $request)
+    {
+        Curso::insert([
+                'nome' => $request->nome,
+                'turno' => $request->turno,
+                'idProfessor' => $request->coordenador
+            ]);
+        return redirect('/cursos');
+    }
 
     /*
         PROFESSOR:
