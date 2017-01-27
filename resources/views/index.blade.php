@@ -1,8 +1,4 @@
-@extends('layouts.app')
-
-@section('titulo')
-Início
-@endsection
+@extends('layouts.home')
 
 @section('conteudo')
 <!-- CONTEUDO COMEÇA AQUI -->
