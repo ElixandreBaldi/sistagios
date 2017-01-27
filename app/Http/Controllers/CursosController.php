@@ -14,10 +14,10 @@ class CursosController extends Controller
     public function show()
     {
         $cursos = Curso::all();
-        if(is_null($cursos))
-            return view('cursos');
-        foreach($cursos as $curso){
-            $curso->professor = $curso->coordenador()->first()->value('nome');
+        
+        foreach($cursos as $curso)
+        {
+            $curso->professor = $curso->coordenador()->first();            
             switch ($curso->turno) {
                 case 1:
                     $curso->turno = 'Manhã';
@@ -30,7 +30,8 @@ class CursosController extends Controller
                     break;
                 
             }
-        }        
+        }
+        //return compact('cursos');        
     	return view('cursos',compact('cursos'));
     }
     public function createCurso(){
@@ -47,7 +48,16 @@ class CursosController extends Controller
             ]);
         return redirect('/cursos');
     }
+    public function showOneCurso(Curso $curso){
 
+        $professores = Professor::select('id', 'nome') -> get();
+        return view('curso_mostrar',compact('curso'),compact('professores'));
+    }
+    public function runDeleteCurso(Request $request, $curso)
+    {
+        $deleted = Curso::where('id', $curso)->delete();
+        return compact('deleted'); 
+    }
     /*
         PROFESSOR:
     */

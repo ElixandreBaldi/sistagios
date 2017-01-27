@@ -5,18 +5,19 @@ Cursos
 @endsection
 
 @section('conteudo')
-<div id="modal-ver-mais" class="modal fade" role="dialog">
+@foreach ($cursos as $curso)
+<div id="modal-ver-mais-{{$curso->id}}" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Informática</h4>
+                <h4 class="modal-title">{{$curso->nome}}</h4>
             </div>
             <div class="modal-body">
-                <p>Manhã</p>
+                <p>{{$curso->turno}}</p>
                 <br>
-                <p>Coordenador: André Jandrey</p>
-                <p>jandray@hotmail.com</p>
+                <p>Coordenador: {{$curso->professor->nome}}</p>
+                <p>{{$curso->professor->email}}</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
@@ -24,6 +25,7 @@ Cursos
         </div>
     </div>
 </div>
+@endforeach
 <div class="row content">
     <div class="nav">
 
@@ -68,13 +70,13 @@ Cursos
                     {{$curso->turno}}
                 </td>
                 <td>
-                    {{$curso->professor}}
+                    {{$curso->professor->nome}}
                 </td>
                 <td>
                     <div class="btn-group" role="group">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#modal-ver-mais"><span class="glyphicon glyphicon-eye-open"></span> Ver mais</button>
-                        <button class="btn btn-info" onclick="window.location.href='#'"><span class="glyphicon glyphicon-edit"></span> Editar</button>
-                        <button class="btn btn-danger" onclick="alert_delete()"><span class="glyphicon glyphicon-remove"></span> Excluir</button>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#modal-ver-mais-{{$curso->id}}"><span class="glyphicon glyphicon-eye-open"></span> Ver mais</button>
+                        <button class="btn btn-info" onclick="window.location.href='cursos/{{$curso -> id}}'"><span class="glyphicon glyphicon-edit"></span> Editar</button>
+                        <button class="btn btn-danger" onclick='excluir({{$curso->id}}, "cursos")'><span class="glyphicon glyphicon-remove"></span> Excluir</button>
                     </div>
                 </td>
             </tr>
