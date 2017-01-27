@@ -8,11 +8,22 @@ use App\Professor;
 
 class CursosController extends Controller
 {
+    /*
+        CURSO:
+    */
     public function show()
     {
-    	return view('/cursos');
+        $cursos = Professor::all();
+    	return view('/cursos',compact('cursos'));
     }
-    
+    public function createCurso(){
+        return view('/curso_criar')
+    }
+
+
+    /*
+        PROFESSOR:
+    */
     public function showProfessores()
     {
     	$professores = Professor::all();
@@ -30,7 +41,7 @@ class CursosController extends Controller
     }
 
     public function showOneProfessor(Professor $professor){
-        return view('mostrar_professor',compact('professor'));
+        return view('professor_mostrar',compact('professor'));
     }
 
     public function runEditProfessor(Request $request, Professor $professor){
