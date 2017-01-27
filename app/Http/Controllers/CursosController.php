@@ -14,6 +14,8 @@ class CursosController extends Controller
     public function show()
     {
         $cursos = Curso::all();
+        if(is_null($cursos))
+            return view('cursos');
         foreach($cursos as $curso){
             $curso->professor = $curso->coordenador()->first()->value('nome');
             switch ($curso->turno) {
@@ -28,13 +30,13 @@ class CursosController extends Controller
                     break;
                 
             }
-        }
-    	return view('/cursos',compact('cursos'));
+        }        
+    	return view('cursos',compact('cursos'));
     }
     public function createCurso(){
         $professores = Professor::select('id', 'nome') -> get();
 
-        return view('/curso_criar', compact('professores'));
+        return view('curso_criar', compact('professores'));
     }
     public function runCreateCurso(Request $request)
     {
@@ -53,7 +55,7 @@ class CursosController extends Controller
     {
     	$professores = Professor::all();
 
-		return view('/professores',compact('professores'));
+		return view('professores',compact('professores'));
     }
 
     public function runCreateProfessor(Request $request)

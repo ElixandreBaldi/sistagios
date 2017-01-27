@@ -64,7 +64,7 @@ Professores
                     <td>
                         <div class='btn-group' role='group'>                            
                             <button class='btn btn-info' onclick="window.location.href='professores/{{$professor -> id}}'"><span class='glyphicon glyphicon-edit'></span> Editar</button>
-                            <button class='btn btn-danger' onclick='alert_delete({{$professor->id}})'><span class='glyphicon glyphicon-remove'></span> Excluir</button>
+                            <button class='btn btn-danger' onclick='excluir({{$professor->id}}, "professores")'><span class='glyphicon glyphicon-remove'></span> Excluir</button>
                         </div>
                     </td>
                 </tr>                
