@@ -13,8 +13,8 @@
 
 Auth::routes();
 Route::get('/', 'HomeController@index');
-Route::get('/sair', 'HomeController@logout');
-Route::get('/menu', 'HomeController@menu');
+Route::get('/sair', 'HomeController@logout')/*->middleware('auth')*/;
+Route::get('/menu', 'HomeController@menu')/*->middleware('auth')*/;
 
 /**
 * Empresas

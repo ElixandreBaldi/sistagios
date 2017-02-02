@@ -30,8 +30,7 @@ class CursosController extends Controller
                     break;
                 
             }
-        }
-        //return compact('cursos');        
+        }        
     	return view('cursos',compact('cursos'));
     }
     public function createCurso(){
@@ -41,6 +40,12 @@ class CursosController extends Controller
     }
     public function runCreateCurso(Request $request)
     {
+        $this->validate($request, [
+            'nome' => 'required|max:255',
+            'turno' => 'required', //editar?
+            'idProfessor' => 'required',
+        ]);
+
         Curso::insert([
                 'nome' => $request->nome,
                 'turno' => $request->turno,
@@ -70,6 +75,10 @@ class CursosController extends Controller
 
     public function runCreateProfessor(Request $request)
     {
+        $this->validate($request, [
+            'nome' => 'required|max:255',
+            'email' => 'required|email|unique:professores',             
+        ]);
     	Professor::insert([
     			'nome' => $request->nome,
     			'email' => $request->email  		

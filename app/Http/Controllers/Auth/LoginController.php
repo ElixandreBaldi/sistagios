@@ -28,6 +28,8 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/menu';
+    protected $loginPath = '/';
+    protected $redirectAfterLogout = '/';
 
     public function username()
     {
