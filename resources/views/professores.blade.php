@@ -32,8 +32,8 @@ Professores
                                   <strong>{{ $errors->first('email') }}</strong>
                               </span>
                           @endif
-                        </div>                
-                    </div>            
+                        </div>
+                    </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-default" >Enviar</button>
                     </div>
@@ -42,9 +42,9 @@ Professores
         </div>
     </div>
     <div class="row content">
-        <button onclick="window.location.href='/menu'" class="btn btn-primary"><span class="glyphicon glyphicon-circle-arrow-left"></span> Voltar</button>
+        <button onclick="window.location.href='/cursos'" class="btn btn-primary"><span class="glyphicon glyphicon-circle-arrow-left"></span> Voltar</button>
         <button data-toggle="modal" data-target="#modal-cadastrar" class="btn btn-primary"><span class="glyphicon glyphicon-asterisk"></span> Cadastrar novo</button>
-        
+
         <h3 class="titulo_area">Professor</h3>
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Buscar...">
@@ -62,32 +62,32 @@ Professores
                     </th>
                     <th>
                         EMAIL
-                    </th>                    
+                    </th>
                     <th>
                         AÇÕES
                     </th>
                 </tr>
                 @foreach ($professores as $professor)
-                <tr>                            
+                <tr>
                     <td>{{$professor -> nome}}</td>
                     <td>{{$professor -> email}}</td>
                     <td>
-                        <div class='btn-group' role='group'>                            
+                        <div class='btn-group' role='group'>
                             <button class='btn btn-info' onclick="window.location.href='professores/{{$professor -> id}}'"><span class='glyphicon glyphicon-edit'></span> Editar</button>
                             <button class='btn btn-danger' onclick='excluir({{$professor->id}}, "professores")'><span class='glyphicon glyphicon-remove'></span> Excluir</button>
                         </div>
                     </td>
-                </tr>                
-                @endforeach                                                    
+                </tr>
+                @endforeach
             </table>
         </div>
     </div>
-    
+
     <script>
         /*$( document ).ready(function() {
             $("#modal-cadastrar").modal();
         });*/
     </script>
-    
+
 <!-- CONTEUDO TERMINA AQUI -->
 @endsection

@@ -10,7 +10,11 @@ class EmpresasController extends Controller
 {
     public function show()
     {
-        return view('empresas');
+        $empresas = Empresa::all();
+        foreach($empresas as $empresa){
+            $empresa->endereco = $empresa->endereco()->first();
+        }
+        return view('empresas', compact('empresas'));
     }
 
     public function showOne(Empresa $empresa)

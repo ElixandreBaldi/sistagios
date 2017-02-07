@@ -9,10 +9,12 @@ html, body
 div.bg{ /*/Container do sistema externo/*/
 	background-color: #ffce3b;
 	height: 100%;
+    position:relative;
 }
 div.container-fluid.sys{ /*/Container do sistema interno/*/
 	background-color: #a3aeba;
 	height: 100%;
+    position:relative;
 }
 div.vagas{ /*/Div das Vagas no sistema externo/*/
 	margin-top: 5%;
@@ -40,6 +42,10 @@ h2.master-subtitulo{ /*/Subtitulo/*/
 
 div.sys{
 	text-align: center;
+}
+
+div.footer {
+    text-align: center;
 }
 
 div.content{

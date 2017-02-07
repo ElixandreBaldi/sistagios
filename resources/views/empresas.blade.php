@@ -5,22 +5,23 @@ Empresas
 @endsection
 
 @section('conteudo')
-<div id="modal-ver-mais" class="modal fade" role="dialog">
+@foreach($empresas as $empresa)
+<div id="{{'modal-' . $empresa->id}}" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">BIGOLIN Materiais de Construção e Decoração</h4>
+                <h4 class="modal-title">{{$empresa->nome}}</h4>
             </div>
             <div class="modal-body">
-                <p>Av. Rio Grande do Sul, 5200 - CENTRO</p>
-                <p>CASCAVEL - PR - 85819-000</p>
-                <p>(45) 3030 - 8080</p>
-                <p>bigolin@bigolin.com.br</p>
-                <p>CNPJ: 001.002.003/0001-01</p>
+                <p>{{$empresa->endereco->rua}}, {{$empresa->endereco->numero}} - {{$empresa->endereco->bairro}}</p>
+                <p>{{$empresa->endereco->cidade}} - {{$empresa->endereco->uf}} - {{$empresa->endereco->CEP}}</p>
+                <p>{{$empresa->telefone1}} / {{$empresa->telefone2}}</p>
+                <p>{{$empresa->email}}</p>
+                <p>CNPJ: {{$empresa->cnpj}}</p>
                 <br>
-                <p>Responsável: Eleonor</p>
-                <p>Cadastro efetuado em: 12/12/2016</p>
+                <p>Responsável: {{$empresa->representante}}</p>
+                <p>Cadastro efetuado em: {{$empresa->created_at}}</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
@@ -28,6 +29,7 @@ Empresas
         </div>
     </div>
 </div>
+@endforeach
 <div class="row content">
 <button onclick="window.location.href='/menu'" class="btn btn-primary"><span class="glyphicon glyphicon-circle-arrow-left"></span> Voltar</button>
     <button onclick="window.location.href='/empresas/criar'" class="btn btn-primary"><span class="glyphicon glyphicon-asterisk"></span> Cadastrar nova</button>
@@ -56,24 +58,26 @@ Empresas
                     AÇÕES
                 </td>
             </tr>
+            @foreach($empresas as $empresa)
             <tr>
                 <td>
-                    BIGOLIN Materiais de Construção e Decoração
+                    {{$empresa->nome}}
                 </td>
                 <td>
-                    CASCAVEL
+                    {{$empresa->endereco->cidade}}
                 </td>
                 <td>
-                    (45) 3030 - 8080
+                    {{$empresa->telefone1}}
                 </td>
                 <td>
                     <div class="btn-group" role="group">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#modal-ver-mais"><span class="glyphicon glyphicon-eye-open"></span> Ver mais</button>
-                        <button class="btn btn-info" onclick="window.location.href='/empresas/1'"><span class="glyphicon glyphicon-edit"></span> Editar</button>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#{{'modal-' . $empresa->id}}"><span class="glyphicon glyphicon-eye-open"></span> Ver mais</button>
+                        <button class="btn btn-info" onclick="window.location.href='/empresas/{{$empresa->id}}'"><span class="glyphicon glyphicon-edit"></span> Editar</button>
                         <button class="btn btn-danger" onclick="alert_delete()"><span class="glyphicon glyphicon-remove"></span> Excluir</button>
                     </div>
                 </td>
             </tr>
+            @endforeach
         </table>
     </div>
 </div>

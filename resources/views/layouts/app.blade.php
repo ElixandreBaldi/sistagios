@@ -25,7 +25,12 @@
         </div>
     <!-- TITULO TERMINA AQUI -->
         @yield('conteudo')
-        <p><br><br><a href="mailto:luizguilhermefr@gmail.com,victor_pozzan@hotmail.com,elixandre_michael@hotmail.com">Reportar Erro</a></p>
+    </div>
+    <div class="footer">
+        <p>
+            <a href="mailto:luizguilhermefr@gmail.com,victor_pozzan@hotmail.com,elixandre_michael@hotmail.com">Reportar Erro</a>
+            @yield('footer')
+        </p>
     </div>
 </body>
 </html>
