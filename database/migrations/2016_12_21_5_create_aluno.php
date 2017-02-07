@@ -21,9 +21,9 @@ class CreateAluno extends Migration
             $table->string('cpf');
             $table->string('telefone1');
             $table->string('telefone2');
-            $table->string('email')->unique();                        
+            $table->string('email')->unique();
             $table->integer('idCurso')->unsigned();
-            $table->foreign('idCurso')->references('id')->on('curso');
+            $table->foreign('idCurso')->references('id')->on('cursos');
         });
     }
     /**

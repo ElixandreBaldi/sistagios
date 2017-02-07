@@ -15,11 +15,11 @@ class CreateCurso extends Migration
     public function up()
     {
         Schema::create('cursos', function (Blueprint $table) {
-            $table->increments('id');            
+            $table->increments('id');
             $table->string('nome');
             $table->char('turno',1);
             $table->integer('idProfessor')->unsigned();
-            $table->foreign('idProfessor')->references('id')->on('professor');
+            $table->foreign('idProfessor')->references('id')->on('professores');
         });
     }
     /**

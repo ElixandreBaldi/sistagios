@@ -22,12 +22,12 @@ class CreateEmpresa extends Migration
             $table->string('telefone1');
             $table->string('telefone2');
             $table->string('email')->unique();
-            $table->timestamps();                        
+            $table->timestamps();
             $table->integer('idEndereco')->unsigned();
-            $table->foreign('idEndereco')->references('id')->on('endereco');
+            $table->foreign('idEndereco')->references('id')->on('enderecos');
         });
     }
-    
+
     /**
      * Reverse the migrations.
      *

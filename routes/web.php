@@ -13,68 +13,72 @@
 
 Auth::routes();
 Route::get('/', 'HomeController@index');
-Route::get('/sair', 'HomeController@logout')/*->middleware('auth')*/;
-Route::get('/menu', 'HomeController@menu')/*->middleware('auth')*/;
 
-/**
-* Empresas
-*/
+Route::group(['middleware' => ['auth']], function ()
+    {
+        Route::get('/sair', 'HomeController@logout');
+        Route::get('/menu', 'HomeController@menu');
 
-Route::get('/empresas', 'EmpresasController@show');
-Route::get('/empresas/criar', 'EmpresasController@create');
-Route::post('/empresas/criar', 'EmpresasController@runCreate');
-Route::get('/empresas/{id}', 'EmpresasController@showOne');
-Route::post('/empresas/{id}/editar', 'EmpresasController@runEdit');
-Route::post('/empresas/{id}/excluir', 'EmpresasController@runDelete');
+        /**
+        * Empresas
+        */
 
-/**
-* Alunos
-*/
+        Route::get('/empresas', 'EmpresasController@show');
+        Route::get('/empresas/criar', 'EmpresasController@create');
+        Route::post('/empresas/criar', 'EmpresasController@runCreate');
+        Route::get('/empresas/{id}', 'EmpresasController@showOne');
+        Route::post('/empresas/{id}/editar', 'EmpresasController@runEdit');
+        Route::post('/empresas/{id}/excluir', 'EmpresasController@runDelete');
 
-Route::get('/alunos', 'AlunosController@show');
-Route::get('/alunos/criar', 'AlunosController@create');
-Route::post('/alunos/criar', 'AlunosController@runCreate');
-Route::get('/alunos/{id}', 'AlunosController@showOne');
-Route::post('/alunos/{id}/editar', 'AlunosController@runEdit');
-Route::post('/alunos/{id}/excluir', 'AlunosController@runDelete');
+        /**
+        * Alunos
+        */
 
-/**
-* Relatórios
-*/
+        Route::get('/alunos', 'AlunosController@show');
+        Route::get('/alunos/criar', 'AlunosController@create');
+        Route::post('/alunos/criar', 'AlunosController@runCreate');
+        Route::get('/alunos/{id}', 'AlunosController@showOne');
+        Route::post('/alunos/{id}/editar', 'AlunosController@runEdit');
+        Route::post('/alunos/{id}/excluir', 'AlunosController@runDelete');
 
-Route::get('/relatorios', 'RelatoriosController@show');
+        /**
+        * Relatórios
+        */
 
-/**
-* Vagas
-*/
+        Route::get('/relatorios', 'RelatoriosController@show');
 
-Route::get('/vagas', 'VagasController@show');
+        /**
+        * Vagas
+        */
 
-/**
-* Cursos
-*/
+        Route::get('/vagas', 'VagasController@show');
 
-Route::get('/cursos', 'CursosController@show');
-Route::get('/cursos/criar', 'CursosController@createCurso');
-Route::post('/cursos/criar', 'CursosController@runCreateCurso');
-Route::get('/cursos/{curso}', 'CursosController@showOneCurso');
-Route::post('/cursos/{curso}/editar', 'CursosController@runEditCurso');
-Route::post('/cursos/{curso}/excluir', 'CursosController@runDeleteCurso');
+        /**
+        * Cursos
+        */
 
-/**
-* Cursos -> Professores
-*/
+        Route::get('/cursos', 'CursosController@show');
+        Route::get('/cursos/criar', 'CursosController@createCurso');
+        Route::post('/cursos/criar', 'CursosController@runCreateCurso');
+        Route::get('/cursos/{curso}', 'CursosController@showOneCurso');
+        Route::post('/cursos/{curso}/editar', 'CursosController@runEditCurso');
+        Route::post('/cursos/{curso}/excluir', 'CursosController@runDeleteCurso');
 
-Route::get('/professores', 'CursosController@showProfessores');
-Route::get('professores/{professor}', 'CursosController@showOneProfessor');
-Route::post('/professores/criar', 'CursosController@runCreateProfessor');
-Route::post('professores/{professor}/editar', 'CursosController@runEditProfessor');
-Route::post('professores/{professor}/excluir', 'CursosController@runDeleteProfessor');
+        /**
+        * Cursos -> Professores
+        */
 
-/**
-* usuários
-*/
+        Route::get('/professores', 'CursosController@showProfessores');
+        Route::get('/professores/{professor}', 'CursosController@showOneProfessor');
+        Route::post('/professores/criar', 'CursosController@runCreateProfessor');
+        Route::post('/professores/{professor}/editar', 'CursosController@runEditProfessor');
+        Route::post('/professores/{professor}/excluir', 'CursosController@runDeleteProfessor');
 
-Route::get('/usuarios/criar', 'UsuariosController@create');
-Route::post('/usuarios/criar', 'UsuariosController@runCreate');
+        /**
+        * Usuários
+        */
 
+        Route::get('/usuarios/criar', 'UsuariosController@create');
+        Route::post('/usuarios/criar', 'UsuariosController@runCreate');
+    }
+);

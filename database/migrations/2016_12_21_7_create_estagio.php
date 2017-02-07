@@ -15,12 +15,12 @@ class CreateEstagio extends Migration
     public function up()
     {
         Schema::create('estagios', function (Blueprint $table) {
-            $table->increments('id');            
+            $table->increments('id');
             $table->string('supervisor');
             $table->integer('idVaga')->unsigned();
-            $table->foreign('idVaga')->references('id')->on('vaga');
+            $table->foreign('idVaga')->references('id')->on('vagas');
             $table->integer('idAluno')->unsigned();
-            $table->foreign('idAluno')->references('id')->on('aluno');
+            $table->foreign('idAluno')->references('id')->on('alunos');
         });
     }
     /**

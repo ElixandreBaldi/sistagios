@@ -22,9 +22,9 @@ class CreateVaga extends Migration
             $table->boolean('aberta');
             $table->timestamps();
             $table->integer('idCurso')->unsigned();
-            $table->foreign('idCurso')->references('id')->on('curso');                
+            $table->foreign('idCurso')->references('id')->on('cursos');                
             $table->integer('idEmpresa')->unsigned();
-            $table->foreign('idEmpresa')->references('id')->on('empresa');
+            $table->foreign('idEmpresa')->references('id')->on('empresas');
         });
     }
     /**
