@@ -22,7 +22,7 @@ Professores
                               <span class="help-block">
                                   <strong>{{ $errors->first('nome') }}</strong>
                               </span>
-                          @endif
+                            @endif
                         </div>
                         <div class="form-group col-md-12">
                             <label for="email">E-MAIL</label>
@@ -31,7 +31,7 @@ Professores
                               <span class="help-block">
                                   <strong>{{ $errors->first('email') }}</strong>
                               </span>
-                          @endif
+                            @endif
                         </div>
                     </div>
                     <div class="modal-footer">
