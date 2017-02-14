@@ -36,16 +36,16 @@ class AlunosController extends Controller
     public function runCreate(Request $request)
     {
         $endereco = Endereco::insertGetId([
-            'CEP' => $request->CEP,
+            'CEP' => $request->cep,
             'rua' => $request->rua,
             'numero' => $request->numero,
             'bairro' => $request->bairro,
             'cidade' => $request->cidade,
-            'uf' => $request->uf
+            'uf' => $request->estado
         ]);
     	Aluno::insert([
             'nome' => $request->nome,
-            'telefone' => $request->telefone,
+            'telefone' => $request->fone,
             'rg' => $request->rg,
             'cpf' => $request->cpf,
             'email' => $request->email,
