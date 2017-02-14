@@ -43,7 +43,7 @@ class CursosController extends Controller
         $this->validate($request, [
             'nome' => 'required|max:255',
             'turno' => 'required', //editar?
-            'idProfessor' => 'required',
+            'coordenador' => 'required',
         ]);
 
         Curso::insert([
@@ -57,6 +57,20 @@ class CursosController extends Controller
 
         $professores = Professor::select('id', 'nome') -> get();
         return view('curso_mostrar',compact('curso'),compact('professores'));
+    }
+    public function runEditCurso(Request $request, Curso $curso){
+        $this->validate($request, [
+            'nome' => 'required|max:255',
+            'turno' => 'required', //editar?
+            'coordenador' => 'required',
+        ]);
+
+        $curso->update([
+            'nome' => $request->nome,
+            'turno' => $request->turno,
+            'idProfessor' => $request->coordenador
+        ]);
+        return redirect('/cursos');
     }
     public function runDeleteCurso(Request $request, $curso)
     {
@@ -91,6 +105,10 @@ class CursosController extends Controller
     }
 
     public function runEditProfessor(Request $request, Professor $professor){
+        $this->validate($request, [
+            'nome' => 'required|max:255',
+            'email' => 'required|email',             
+        ]);
         $professor->update([
             'nome' => $request->nome,
             'email' => $request->email

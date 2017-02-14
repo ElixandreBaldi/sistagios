@@ -14,10 +14,20 @@ Editar Professor
             <div class="form-group col-md-12">
                 <label for="nome">NOME</label>
                 <input type="text" class="form-control" value="{{$professor -> nome}}" id="nome" name="nome">
+                @if ($errors->has('nome'))
+                  <span class="help-block">
+                      <strong>{{ $errors->first('nome') }}</strong>
+                  </span>
+                @endif
             </div>
             <div class="form-group col-md-12">
                 <label for="email">E-MAIL</label>
                 <input type="text" class="form-control" value="{{$professor -> email}}" id="email" name="email">
+                @if ($errors->has('email'))
+                  <span class="help-block">
+                      <strong>{{ $errors->first('email') }}</strong>
+                  </span>
+                @endif
             </div>                
         </div>            
         

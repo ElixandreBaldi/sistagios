@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Empresa;
@@ -28,10 +29,34 @@ class EmpresasController extends Controller
     }
 
     public function runCreate(Request $request)
-    {
-    	Empresa::insert([
-    		// data
-    	]);
+    {    
+        $this->validate($request, [
+            'nome' => 'required|max:255',
+            'cep' => 'required',
+            'bairro' => 'required',
+            'rua' => 'required',
+            'numero' => 'required',
+            'cidade' => 'required',
+            'estado' => 'required',
+            'telefone' => 'required',
+            'email' => 'required|email',
+            'nome_rep' => 'required',            
+            'cnpjcpf' => 'required'
+        ]);
+
+        Empresa::insert([
+                'nome' => $request->nome,
+                'cep' => $request->cep,
+                'bairro' => $request->bairro,
+                'rua' => $request->rua,
+                'numero' => $request->numero,
+                'cidade' => $request->cidade,
+                'estado' => $request->estado,
+                'telefone' => $request->telefone,
+                'email' => $request->email,
+                'nome_rep' => $request->nome_rep,                
+            ]);
+
       return redirect('/empresas');
     }
 
