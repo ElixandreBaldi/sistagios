@@ -57,15 +57,30 @@ class AlunosController extends Controller
 
     public function runEdit(Request $request, Aluno $aluno)
     {
+        $aluno->endereco()->update([
+            'CEP' => $request->cep,
+            'rua' => $request->rua,
+            'numero' => $request->numero,
+            'bairro' => $request->bairro,
+            'cidade' => $request->cidade,
+            'uf' => $request->estado
+        ]);
     	$aluno->update([
-    		// data
+            'nome' => $request->nome,
+            'telefone' => $request->telefone,
+            'rg' => $request->rg,
+            'cpf' => $request->cpf,
+            'email' => $request->email,
+            'idCurso' => $request->curso
     	]);
-      return redirect('/alunos/' + $aluno->id);
+      return redirect('/alunos');
     }
 
     public function runDelete(Request $request, Aluno $aluno)
     {
-    	$aluno->delete();
-      return redirect('/alunos');
+        $end = $aluno->idEndereco;
+        $deleted = $aluno->delete();
+        Endereco::where('id', $end)->delete();
+        return compact('deleted');
     }
 }

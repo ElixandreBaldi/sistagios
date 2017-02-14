@@ -38,8 +38,8 @@ Route::group(['middleware' => ['auth']], function ()
         Route::get('/alunos/criar', 'AlunosController@create');
         Route::post('/alunos/criar', 'AlunosController@runCreate');
         Route::get('/alunos/{aluno}', 'AlunosController@showOne');
-        Route::post('/alunos/{id}/editar', 'AlunosController@runEdit');
-        Route::post('/alunos/{id}/excluir', 'AlunosController@runDelete');
+        Route::post('/alunos/{aluno}/editar', 'AlunosController@runEdit');
+        Route::post('/alunos/{aluno}/excluir', 'AlunosController@runDelete');
 
         /**
         * Relatórios

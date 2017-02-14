@@ -69,13 +69,13 @@ Alunos
                     {{$aluno->curso}}
                 </td>
                 <td>
-                    {{$aluno->telefone1}}
+                    {{$aluno->telefone}}
                 </td>
                 <td>
                     <div class="btn-group" role="group">
                         <button class="btn btn-primary" data-toggle="modal" data-target="#{{'modal-' . $aluno->id}}"><span class="glyphicon glyphicon-eye-open"></span> Ver mais</button>
                         <button class="btn btn-info" onclick="window.location.href='/alunos/{{$aluno->id}}'"><span class="glyphicon glyphicon-edit"></span> Editar</button>
-                        <button class="btn btn-danger" onclick="alert_delete()"><span class="glyphicon glyphicon-remove"></span> Excluir</button>
+                        <button class="btn btn-danger" onclick="excluir({{$aluno->id}}, 'alunos')"><span class="glyphicon glyphicon-remove"></span> Excluir</button>
                     </div>
                 </td>
             </tr>
