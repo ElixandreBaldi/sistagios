@@ -16,3 +16,27 @@ function excluir (id, entity_url) {
 		});
 	}
 }
+
+function cnpjcpf( campo, e )
+{
+    var kC = (document.all) ? event.keyCode : e.keyCode;
+    var data = campo.value;
+    campo.value = ".......";
+    if( kC!=8 && kC!=46 )
+    {    	
+        if( data.length==3 )
+        {
+            campo.value = data += '.';
+        }
+        else if( data.length==7 )
+        {
+            campo.value = data += '.';
+        }
+        else if(data.length == 11){
+            campo.value = data += '-';
+        }
+        else if(data.length > 14){
+        	campo.value = "vai mudar";
+        }
+    }
+}

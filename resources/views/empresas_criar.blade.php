@@ -77,19 +77,43 @@ Criar Empresa
 <div class="row content">
   <button onclick="window.location.href='/empresas'" class="btn btn-primary"><span class="glyphicon glyphicon-circle-arrow-left"></span> Voltar</button>
   <h3 class="titulo_area">Cadastrar Empresa</h3>
-  <form>
+  <form action="/empresas/criar" method="POST">
+    {{ csrf_field() }}    
     <div class="form-group col-md-6">
-      <label for="nome">NOME</label>
-      <input type="text" class="form-control" name="nome" id="nome">
+      <label for="nome">NOME</label>      
+      <input type="text" class="form-control" name="nome" id="nome">      
     </div>
-    <div class="form-group col-md-3">
-      <label for="cep">CEP</label>
-      <input type="text" onblur="pesquisacep(this.value);" name="cep" class="form-control" id="cep">
+    <div class="form-group col-md-3">      
+      <label for="cep">CEP</label>      
+      <input type="text" onblur="pesquisacep(this.value);" name="cep" class="form-control" id="cep">      
     </div>
     <div class="form-group col-md-3">
       <label for="bairro">BAIRRO</label>
       <input type="text" class="form-control" name="bairro" id="bairro">
-    </div>      
+    </div>  
+    <div class="col-md-12">
+      <div class="col-md-6">
+        @if ($errors->has('nome'))
+          <span class="help-block">
+              <strong>{{ $errors->first('nome') }}</strong>
+          </span>        
+        @endif
+      </div>
+      <div class="col-md-3">  
+        @if ($errors->has('cep'))
+          <span class="help-block">
+              <strong>{{ $errors->first('cep') }}</strong>
+          </span>        
+        @endif
+      </div>
+      <div class="col-md-3">  
+        @if ($errors->has('bairro'))
+          <span class="help-block">
+              <strong>{{ $errors->first('bairro') }}</strong>
+          </span>        
+        @endif
+      </div>      
+    </div>
     <div class="form-group col-md-6">
       <label for="rua">RUA</label>
       <input type="text" class="form-control" name="rua" id="rua">
@@ -104,37 +128,37 @@ Criar Empresa
     </div>  
     <div class="form-group col-md-1">
       <label for="estado">ESTADO</label>
-      <input type="text" class="form-control" id="estado" name="estado" maxlength=2>
-      <!--<select class="form-control" name="estado">
-        <option value="PR">Paraná</option>
-        <option value="AC">Acre</option>
-        <option value="AL">Alagoas</option>
-        <option value="AP">Amapá</option> 
-        <option value="AM">Amazonas</option>
-        <option value="BA">Bahia</option>
-        <option value="CE">Ceará</option>
-        <option value="DF">Distrito Federal</option>
-        <option value="ES">Espírito Santo</option>
-        <option value="GO">Goiás</option>
-        <option value="MA">Maranhão</option>
-        <option value="MT">Mato Grosso</option>
-        <option value="MS">Mato Grosso do Sul</option>
-        <option value="MG">Minas Gerais</option>
-        <option value="PA">Pará</option>
-        <option value="PB">Paraíba</option>
-        <option value="PR">Paraná</option>
-        <option value="PE">Pernambuco</option>
-        <option value="PI">Piauí</option>
-        <option value="RJ">Rio de Janeiro</option>
-        <option value="RN">Rio Grande do Norte</option>
-        <option value="RS">Rio Grande do Sul</option>
-        <option value="RO">Rondônia</option>
-        <option value="RR">Roraima</option>
-        <option value="SC">Santa Catarina</option>
-        <option value="SP">São Paulo</option>
-        <option value="SE">Sergipe</option>
-        <option value="TO">Tocantins</option>
-      </select>-->
+      <input type="text" class="form-control" id="estado" name="estado" maxlength=2>      
+    </div>
+    <div class="col-md-12">
+      <div class="col-md-6">
+        @if ($errors->has('rua'))
+          <span class="help-block">
+              <strong>{{ $errors->first('rua') }}</strong>
+          </span>        
+        @endif
+      </div>
+      <div class="col-md-2">  
+        @if ($errors->has('numero'))
+          <span class="help-block">
+              <strong>{{ $errors->first('numero') }}</strong>
+          </span>        
+        @endif
+      </div>
+      <div class="col-md-3">  
+        @if ($errors->has('cidade'))
+          <span class="help-block">
+              <strong>{{ $errors->first('cidade') }}</strong>
+          </span>        
+        @endif
+      </div>      
+      <div class="col-md-1">  
+        @if ($errors->has('estado'))
+          <span class="help-block">
+              <strong>{{ $errors->first('estado') }}</strong>
+          </span>        
+        @endif
+      </div>  
     </div>
     <div class="form-group col-md-4">
       <label for="nome">TELEFONE</label>
@@ -148,24 +172,38 @@ Criar Empresa
       <label for="nome">NOME REPRESENTANTE</label>
       <input type="text" class="form-control" name="nome_rep" id="nome_rep">
     </div>
-    <div class="form-group col-md-6">
-      <label for="nome">CNPJ</label>
-      <div class="input-group">
-        <span class="input-group-addon">
-          <input type="radio" name="codigo" aria-label="..." checked="checked">
-        </span>
-        <input type="text" class="form-control" aria-label="..." name="cnpj">
+    <div class="col-md-12">
+      <div class="col-md-4">
+        @if ($errors->has('telefone'))
+          <span class="help-block">
+              <strong>{{ $errors->first('telefone') }}</strong>
+          </span>        
+        @endif
       </div>
-    </div>
-    <div class="form-group col-md-6">
-      <label for="nome">CPF</label>
-      <div class="input-group">
-        <span class="input-group-addon">
-          <input type="radio" name="codigo" aria-label="...">
-        </span>
-        <input type="text" class="form-control" aria-label="..." name="cpf">
+      <div class="col-md-4">  
+        @if ($errors->has('email'))
+          <span class="help-block">
+              <strong>{{ $errors->first('email') }}</strong>
+          </span>        
+        @endif
       </div>
+      <div class="col-md-4">  
+        @if ($errors->has('nome_rep'))
+          <span class="help-block">
+              <strong>{{ $errors->first('nome_rep') }}</strong>
+          </span>        
+        @endif
+      </div>      
     </div>
+    <div class="form-group col-md-12">
+      <label for="nome">CNPJ ou CPF</label>
+      <input type="text" class="form-control" onkeypress="cnpjcpf( this, event )" id="cnpjcpf" name="cnpjcpf">      
+      @if ($errors->has('cnpjcpf'))
+        <span class="help-block">
+            <strong>{{ $errors->first('cnpjcpf') }}</strong>
+        </span>        
+      @endif
+    </div>    
     <div class="col-md-6">
       <button type="submit" class="btn btn-default">Cadastrar</button>
     </div>

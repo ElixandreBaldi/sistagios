@@ -11,7 +11,7 @@ Empresa: Nome
     <form>
       <div class="form-group col-md-6">
         <label for="nome">NOME</label>
-        <input type="text" class="form-control" id="nome" value="BIGOLIN Materiais de Construção e Decoração">
+        <input type="text" class="form-control" id="nome" value="BIGOLIN Materiais de Construção e Decoração">        
       </div>
       <div class="form-group col-md-3">
         <label for="estado">ESTADO</label>
