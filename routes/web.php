@@ -48,10 +48,10 @@ Route::group(['middleware' => ['auth']], function ()
         Route::get('/relatorios', 'RelatoriosController@show');
 
         /**
-        * Vagas
+        * Estágios
         */
 
-        Route::get('/vagas', 'VagasController@show');
+        Route::get('/estagios', 'EstagiosController@show');
 
         /**
         * Cursos

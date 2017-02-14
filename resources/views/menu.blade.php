@@ -28,9 +28,9 @@ Menu
     </div>
     <div class="row">
         <div class="col-md-4">
-            <a href="vagas" class="thumbnail">
-                <img src="img/vaga.png" alt="Vagas Abertas">
-                <h3>Vagas Abertas</h3>
+            <a href="estagios" class="thumbnail">
+                <img src="img/vaga.png" alt="Estágios">
+                <h3>Estágios</h3>
             </a>
         </div>
         <div class="col-md-4">
