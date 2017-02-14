@@ -31,16 +31,16 @@ class EmpresasController extends Controller
     public function runCreate(Request $request)
     {    
         $this->validate($request, [
-            'nome' => 'required|max:255',
-            'cep' => 'required',
-            'bairro' => 'required',
-            'rua' => 'required',
-            'numero' => 'required',
-            'cidade' => 'required',
-            'estado' => 'required',
-            'telefone' => 'required',
+            'nome' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
+            'cep' => 'required|regex:/^[0-9]{5}\-[0-9]{3}$/',
+            'bairro' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
+            'rua' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
+            'numero' => 'required|numeric',
+            'cidade' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
+            'estado' => 'required|regex:/^[A-Z]{2}$/',
+            'telefone' => 'required|regex:/^\([0-9]{2}\) [0-9]{8,9}$/',
             'email' => 'required|email',
-            'nome_rep' => 'required',            
+            'nome_rep' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',            
             'cnpjcpf' => 'required'
         ]);
 
@@ -54,7 +54,8 @@ class EmpresasController extends Controller
                 'estado' => $request->estado,
                 'telefone' => $request->telefone,
                 'email' => $request->email,
-                'nome_rep' => $request->nome_rep,                
+                'nome_rep' => $request->nome_rep,     
+                'cpfcnpj' => $request->cpfcnpj,           
             ]);
 
       return redirect('/empresas');

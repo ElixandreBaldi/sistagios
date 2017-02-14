@@ -196,14 +196,9 @@ Criar Empresa
       </div>      
     </div>
     <div class="form-group col-md-12">
-      <label for="nome">CNPJ ou CPF</label>
-      <input type="text" class="form-control" onkeypress="cnpjcpf( this, event )" id="cnpjcpf" name="cnpjcpf">      
-      @if ($errors->has('cnpjcpf'))
-        <span class="help-block">
-            <strong>{{ $errors->first('cnpjcpf') }}</strong>
-        </span>        
-      @endif
-    </div>    
+      <label for="nome">CPF ou CNPJ</label>
+      <input type="text" class="form-control" onkeypress="mascaraCpf( this, event )" onkeyup="limitarInput(this, 18)" aria-label="..." name="cpfcnpj">      
+    </div>
     <div class="col-md-6">
       <button type="submit" class="btn btn-default">Cadastrar</button>
     </div>
