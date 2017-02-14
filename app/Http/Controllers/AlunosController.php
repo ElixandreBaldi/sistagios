@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Aluno;
+use App\Curso;
+use App\Endereco;
 
 class AlunosController extends Controller
 {
@@ -20,18 +22,35 @@ class AlunosController extends Controller
 
     public function showOne(Aluno $aluno)
     {
-        return view('alunos_mostrar');
+        $cursos = Curso::all();
+        $aluno->endereco = $aluno->endereco()->first();
+        return view('alunos_mostrar', compact('cursos', 'aluno'));
     }
 
     public function create()
     {
-    	return view('alunos_criar');
+        $cursos = Curso::all();
+    	return view('alunos_criar', compact('cursos'));
     }
 
     public function runCreate(Request $request)
     {
+        $endereco = Endereco::insertGetId([
+            'CEP' => $request->CEP,
+            'rua' => $request->rua,
+            'numero' => $request->numero,
+            'bairro' => $request->bairro,
+            'cidade' => $request->cidade,
+            'uf' => $request->uf
+        ]);
     	Aluno::insert([
-    		// data
+            'nome' => $request->nome,
+            'telefone' => $request->telefone,
+            'rg' => $request->rg,
+            'cpf' => $request->cpf,
+            'email' => $request->email,
+            'idCurso' => $request->curso,
+            'idEndereco' => $endereco
     	]);
       return redirect('/alunos');
     }

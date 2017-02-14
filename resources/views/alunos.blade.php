@@ -16,7 +16,7 @@ Alunos
             <div class="modal-body">
                 <p>{{$aluno->endereco->rua}}, {{$aluno->endereco->numero}} - {{$aluno->endereco->bairro}}</p>
                 <p>{{$aluno->endereco->cidade}} - {{$aluno->endereco->uf}} - {{$aluno->endereco->CEP}}</p>
-                <p>{{$aluno->telefone1}} / {{$aluno->telefone2}}</p>
+                <p>{{$aluno->telefone}}</p>
                 <p>{{$aluno->email}}</p>
                 <p>CPF: {{$aluno->cpf}}</p>
                 <p>RG: {{$aluno->rg}}</p>
@@ -74,7 +74,7 @@ Alunos
                 <td>
                     <div class="btn-group" role="group">
                         <button class="btn btn-primary" data-toggle="modal" data-target="#{{'modal-' . $aluno->id}}"><span class="glyphicon glyphicon-eye-open"></span> Ver mais</button>
-                        <button class="btn btn-info" onclick="window.location.href='/alunos/1'"><span class="glyphicon glyphicon-edit"></span> Editar</button>
+                        <button class="btn btn-info" onclick="window.location.href='/alunos/{{$aluno->id}}'"><span class="glyphicon glyphicon-edit"></span> Editar</button>
                         <button class="btn btn-danger" onclick="alert_delete()"><span class="glyphicon glyphicon-remove"></span> Excluir</button>
                     </div>
                 </td>
