@@ -52,6 +52,11 @@ Route::group(['middleware' => ['auth']], function ()
         */
 
         Route::get('/estagios', 'EstagiosController@show');
+        Route::get('/estagios/criar', 'EstagiosController@create');
+        Route::post('/estagios/criar', 'EstagiosController@runCreate');
+        Route::get('/estagios/{estagio}', 'EstagiosController@showOne');
+        Route::post('/estagios/{estagio}/editar', 'EstagiosController@runEdit');
+        Route::post('/estagios/{estagio}/excluir', 'EstagiosController@runDelete');
 
         /**
         * Cursos

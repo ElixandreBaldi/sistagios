@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('titulo')
-Aluno: nome
+Aluno: {{$aluno->nome}}
 @endsection
 
 @section('conteudo')

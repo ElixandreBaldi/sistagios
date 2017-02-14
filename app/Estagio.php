@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Estagio extends Model
 {
+    public $timestamps = true;
+    protected $fillable = ['descricao', 'setor', 'bolsa', 'aberta', 'supervisor', 'idCurso', 'idEmpresa', 'idAluno', 'created_at', 'updated_at'];
+
     public function empresa() {
     	return $this->belongsTo('App\Empresa', 'idEmpresa');
     }

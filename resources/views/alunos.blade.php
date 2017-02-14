@@ -44,7 +44,7 @@ Alunos
     </div>
     <br>
     <div class="panel panel-default">
-        <div class="panel-heading">Últimos Alunos Cadastradis</div>
+        <div class="panel-heading">Últimos Alunos Cadastrados</div>
         <table class="table">
             <tr>
                 <td>
