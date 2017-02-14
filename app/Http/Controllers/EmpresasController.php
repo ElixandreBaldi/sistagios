@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Empresa;
+use App\Endereco;
 
 class EmpresasController extends Controller
 {
@@ -29,33 +30,37 @@ class EmpresasController extends Controller
     }
 
     public function runCreate(Request $request)
-    {    
+    {            
         $this->validate($request, [
-            'nome' => 'required|max:255',
-            'cep' => 'required',
-            'bairro' => 'required',
-            'rua' => 'required',
-            'numero' => 'required',
-            'cidade' => 'required',
-            'estado' => 'required',
-            'telefone' => 'required',
+            'nome' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
+            'cep' => 'required|regex:/^[0-9]{5}\-[0-9]{3}$/',
+            'bairro' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
+            'rua' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
+            'numero' => 'required|numeric',
+            'cidade' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
+            'estado' => 'required|regex:/^[A-Z]{2}$/',
+            'telefone' => 'required|',
             'email' => 'required|email',
-            'nome_rep' => 'required',            
-            'cnpjcpf' => 'required'
-        ]);
-
-        Empresa::insert([
-                'nome' => $request->nome,
-                'cep' => $request->cep,
-                'bairro' => $request->bairro,
+            'nome_rep' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',            
+            'cpfcnpj' => 'required',
+        ]);        
+        $idEndereco = Endereco::insertGetId([
+                'CEP' => $request->cep,                
                 'rua' => $request->rua,
                 'numero' => $request->numero,
+                'bairro' => $request->bairro,
                 'cidade' => $request->cidade,
-                'estado' => $request->estado,
-                'telefone' => $request->telefone,
-                'email' => $request->email,
-                'nome_rep' => $request->nome_rep,                
+                'uf' => $request->estado,
             ]);
+
+        Empresa::insert([
+                'nome' => $request->nome,                
+                'cpfcnpj' => $request->cpfcnpj,
+                'telefone1' => $request->telefone,
+                'email' => $request->email,
+                'representante' => $request->nome_rep,     
+                'idEndereco' => $idEndereco,
+            ]);        
 
       return redirect('/empresas');
     }
