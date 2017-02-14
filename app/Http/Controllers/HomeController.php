@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Estagio;
 
 class HomeController extends Controller
 {
@@ -20,12 +21,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $vagasAbertas = Estagio::where('aberta', 1)->get();
+        foreach($vagasAbertas as $vaga) {
+            $vaga->curso = $vaga->curso()->value('nome');
+            $vaga->empresa = $vaga->empresa()->value('nome');
+        }
+        return view('index', compact('vagasAbertas'));
     }
 
     public function menu()
     {
-
         return view('menu');
     }
 
