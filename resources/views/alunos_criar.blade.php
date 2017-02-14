@@ -6,66 +6,118 @@ Criar Aluno
 
 @section('conteudo')
 <div class="row content">
-<button onclick="window.location.href='/alunos'" class="btn btn-primary"><span class="glyphicon glyphicon-circle-arrow-left"></span> Voltar</button>
-  <h3 class="titulo_area">Cadastrar Aluno</h3>
-  <form>
-    <div class="form-group col-md-6">
-      <label for="nome">NOME</label>
-      <input type="text" class="form-control" id="nome">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="nome">RUA</label>
-      <input type="text" class="form-control" id="rua">
-    </div>
-    <div class="form-group col-md-2">
-      <label for="nome">NÚMERO</label>
-      <input type="number" class="form-control" id="numero">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="nome">BAIRRO</label>
-      <input type="text" class="form-control" id="bairro">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="nome">CEP</label>
-      <input type="text" class="form-control" id="cep">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="nome">TELEFONE</label>
-      <input type="text" class="form-control" id="fone">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="nome">E-MAIL</label>
-      <input type="email" class="form-control" id="email">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="nome">CURSO</label>
-      <select class="form-control" name="curso">
-        <option value="1">Administração</option>
-        <option value="2">Edificações</option>
-        <option value="3">Eletromecânica</option>
-        <option value="4">Eletrônica</option> 
-        <option value="5">Enfermagem</option>
-        <option value="6">Especialização em Enfermagem do Trabalho</option>
-        <option value="7">Informática</option>
-        <option value="8">Meio Ambiente</option>
-        <option value="9">Segurança do Trabalho</option>
-      </select>
-    </div>
-    <div class="form-group col-md-4">
-      <label for="nome">NOME SUPERVISOR</label>
-      <input type="text" class="form-control" id="nome_sup">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="nome">CPF</label>
-      <input type="text" class="form-control"name="cpf">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="nome">RG</label>
-      <input type="text" class="form-control"name="rg">
-    </div>
-    <div class="col-md-6">
-      <button type="submit" class="btn btn-default">Cadastrar</button>
-    </div>
-  </form>
+    <button onclick="window.location.href='/alunos'" class="btn btn-primary"><span class="glyphicon glyphicon-circle-arrow-left"></span> Voltar</button>
+    <h3 class="titulo_area">Cadastrar Aluno</h3>
+    <form method="POST" action="/alunos/criar">
+        {{csrf_field()}}
+        <div class="form-group col-md-6">
+            <label for="nome">NOME</label>
+            <input type="text" class="form-control" id="nome" name="nome">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="cep">CEP</label>
+          <input type="text" onblur="pesquisacep(this.value);" name="cep" class="form-control" id="cep">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="bairro">BAIRRO</label>
+          <input type="text" class="form-control" name="bairro" id="bairro">
+        </div>
+        <div class="col-md-12">
+          <div class="col-md-6">
+            @if ($errors->has('nome'))
+              <span class="help-block">
+                  <strong>{{ $errors->first('nome') }}</strong>
+              </span>
+            @endif
+          </div>
+          <div class="col-md-3">
+            @if ($errors->has('cep'))
+              <span class="help-block">
+                  <strong>{{ $errors->first('cep') }}</strong>
+              </span>
+            @endif
+          </div>
+          <div class="col-md-3">
+            @if ($errors->has('bairro'))
+              <span class="help-block">
+                  <strong>{{ $errors->first('bairro') }}</strong>
+              </span>
+            @endif
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="rua">RUA</label>
+          <input type="text" class="form-control" name="rua" id="rua">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="numero">NÚMERO</label>
+          <input type="number" class="form-control" name="numero" id="numero">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="cidade">CIDADE</label>
+          <input type="text" class="form-control" name="cidade" id="cidade">
+        </div>
+        <div class="form-group col-md-1">
+          <label for="estado">ESTADO</label>
+          <input type="text" class="form-control" id="estado" name="estado" maxlength=2>
+        </div>
+        <div class="col-md-12">
+          <div class="col-md-6">
+            @if ($errors->has('rua'))
+              <span class="help-block">
+                  <strong>{{ $errors->first('rua') }}</strong>
+              </span>
+            @endif
+          </div>
+          <div class="col-md-2">
+            @if ($errors->has('numero'))
+              <span class="help-block">
+                  <strong>{{ $errors->first('numero') }}</strong>
+              </span>
+            @endif
+          </div>
+          <div class="col-md-3">
+            @if ($errors->has('cidade'))
+              <span class="help-block">
+                  <strong>{{ $errors->first('cidade') }}</strong>
+              </span>
+            @endif
+          </div>
+          <div class="col-md-1">
+            @if ($errors->has('estado'))
+              <span class="help-block">
+                  <strong>{{ $errors->first('estado') }}</strong>
+              </span>
+            @endif
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="nome">TELEFONE</label>
+          <input type="text" class="form-control" name="fone" id="fone">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="nome">E-MAIL</label>
+          <input type="email" class="form-control" name="email" id="email">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="nome">CURSO</label>
+            <select class="form-control" name="curso">
+            @foreach($cursos as $curso)
+                <option value="{{$curso->id}}">{{$curso->nome}}</option>
+            @endforeach
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="nome">CPF</label>
+            <input type="text" class="form-control"name="cpf">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="nome">RG</label>
+            <input type="text" class="form-control"name="rg">
+        </div>
+        <div class="col-md-6">
+            <button type="submit" class="btn btn-default">Cadastrar</button>
+        </div>
+    </form>
 </div>
 @endsection

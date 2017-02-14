@@ -20,7 +20,7 @@ class CreateEmpresa extends Migration
             $table->string('cnpj');
             $table->string('representante');
             $table->string('telefone1');
-            $table->string('telefone2');
+            $table->string('telefone2')->nullable();
             $table->string('email')->unique();
             $table->timestamps();
             $table->integer('idEndereco')->unsigned();

@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Endereco extends Model
 {
-    protected $table = 'enderecos';
+    protected $fillable = ['CEP', 'rua', 'numero', 'bairro', 'cidade', 'uf'];
     public $timestamps = false;
 }

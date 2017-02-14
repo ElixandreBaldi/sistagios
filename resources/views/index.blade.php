@@ -40,7 +40,7 @@
                 @endif
             </div>
         </div>
-        <!-- LOGIN TERMINA AQUI -->     
+        <!-- LOGIN TERMINA AQUI -->
     </div>
     <!-- CABEÇALHO TERMINA AQUI -->
     <!-- TABELA DE VAGAS COMEÇA AQUI -->
@@ -54,7 +54,7 @@
                             Curso
                         </td>
                         <td>
-                            Empresa                         
+                            Empresa
                         </td>
                         <td>
                             Setor
@@ -67,59 +67,27 @@
                         </td>
                     </thead>
                     <tbody>
+                        @foreach($vagasAbertas as $vaga)
                         <tr>
                             <td>
-                                Administração
+                                {{$vaga->curso}}
                             </td>
                             <td>
-                                Coopavel
+                                {{$vaga->empresa}}
                             </td>
                             <td>
-                                Secretária
+                                {{$vaga->setor}}
                             </td>
                             <td>
-                                Voluntário
+                                {{$vaga->bolsa}}
                             </td>
                             <td>
-                                Mão de Obra Muito Escrava
+                                {{$vaga->descricao}}
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                Informática
-                            </td>
-                            <td>
-                                Seta Digital
-                            </td>
-                            <td>
-                                Suporte
-                            </td>
-                            <td>
-                                R$364,00
-                            </td>
-                            <td>
-                                Mão de Obra Escrava
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Meio Ambiente
-                            </td>
-                            <td>
-                                Secretaria de Meio-Ambiente de Cascavel
-                            </td>
-                            <td>
-                                Análise de folhas
-                            </td>
-                            <td>
-                                R$550,00
-                            </td>
-                            <td>
-                                Mão de Obra Semi-escrava
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
-                </table>                
+                </table>
             </div>
         </div>
     </div>
