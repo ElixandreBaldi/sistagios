@@ -18,7 +18,8 @@ class AlunosTableSeeder extends Seeder
             'telefone1' => '45988881111',
             'telefone2' => '4533221111',
             'email' => 'g_markinho@gmail.com',
-            'idCurso' => 1
+            'idCurso' => 1,
+            'idEndereco' => 3
         ]);
         DB::table('alunos')->insert([
             'nome' => 'João Victor Canabarro',
@@ -27,7 +28,8 @@ class AlunosTableSeeder extends Seeder
             'telefone1' => '45958962589',
             'telefone2' => '4532225959',
             'email' => 'jcanabarro@tecinco.com.br',
-            'idCurso' => 2
+            'idCurso' => 2,
+            'idEndereco' => 4
         ]);
     }
 }

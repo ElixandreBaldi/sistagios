@@ -10,7 +10,12 @@ class AlunosController extends Controller
 {
     public function show()
     {
-        return view('alunos');
+        $alunos = Aluno::all();
+        foreach($alunos as $aluno) {
+            $aluno->curso = $aluno->curso()->value('nome');
+            $aluno->endereco = $aluno->endereco()->first();
+        }
+        return view('alunos', compact('alunos'));
     }
 
     public function showOne(Aluno $aluno)

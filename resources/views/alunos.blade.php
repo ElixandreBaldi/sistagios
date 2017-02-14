@@ -5,25 +5,25 @@ Alunos
 @endsection
 
 @section('conteudo')
-<div id="modal-ver-mais" class="modal fade" role="dialog">
+@foreach($alunos as $aluno)
+<div id="{{'modal-' . $aluno->id}}" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Eliseu Baldi</h4>
+                <h4 class="modal-title">{{$aluno->nome}}</h4>
             </div>
             <div class="modal-body">
-                <p>Rua Europa, 222 - MORUMBI</p>
-                <p>CASCAVEL - PR - 85819-122</p>
-                <p>(45) 9 9922 - 8585</p>
-                <p>eliseu@hotmail.com</p>
-                <p>CPF: 001.002.003-04</p>
-                <p>RG: 01.002.003-4</p>
+                <p>{{$aluno->endereco->rua}}, {{$aluno->endereco->numero}} - {{$aluno->endereco->bairro}}</p>
+                <p>{{$aluno->endereco->cidade}} - {{$aluno->endereco->uf}} - {{$aluno->endereco->CEP}}</p>
+                <p>{{$aluno->telefone1}} / {{$aluno->telefone2}}</p>
+                <p>{{$aluno->email}}</p>
+                <p>CPF: {{$aluno->cpf}}</p>
+                <p>RG: {{$aluno->rg}}</p>
                 <br>
-                <p>Curso: Administração</p>
-                <p>Supervisor: Eleonor</p>
+                <p>Curso: {{$aluno->curso}}</p>
                 <br>
-                <p>Cadastro efetuado em: 10/10/2016</p>
+                <p>Cadastro efetuado em: {{$aluno->created_at}}</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
@@ -31,6 +31,7 @@ Alunos
         </div>
     </div>
 </div>
+@endforeach
 <div class="row content">
 <button onclick="window.location.href='/menu'" class="btn btn-primary"><span class="glyphicon glyphicon-circle-arrow-left"></span> Voltar</button>
     <button onclick="window.location.href='/alunos/criar'" class="btn btn-primary"><span class="glyphicon glyphicon-asterisk"></span> Cadastrar novo</button>
@@ -59,24 +60,26 @@ Alunos
                     AÇÕES
                 </td>
             </tr>
+            @foreach($alunos as $aluno)
             <tr>
                 <td>
-                    Eliseu Baldi
+                    {{$aluno->nome}}
                 </td>
                 <td>
-                    ADMINISTRAÇÃO
+                    {{$aluno->curso}}
                 </td>
                 <td>
-                    (45) 9 9922 - 8585
+                    {{$aluno->telefone1}}
                 </td>
                 <td>
                     <div class="btn-group" role="group">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#modal-ver-mais"><span class="glyphicon glyphicon-eye-open"></span> Ver mais</button>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#{{'modal-' . $aluno->id}}"><span class="glyphicon glyphicon-eye-open"></span> Ver mais</button>
                         <button class="btn btn-info" onclick="window.location.href='/alunos/1'"><span class="glyphicon glyphicon-edit"></span> Editar</button>
                         <button class="btn btn-danger" onclick="alert_delete()"><span class="glyphicon glyphicon-remove"></span> Excluir</button>
                     </div>
                 </td>
             </tr>
+            @endforeach
         </table>
     </div>
 </div>

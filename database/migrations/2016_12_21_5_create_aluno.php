@@ -24,6 +24,9 @@ class CreateAluno extends Migration
             $table->string('email')->unique();
             $table->integer('idCurso')->unsigned();
             $table->foreign('idCurso')->references('id')->on('cursos');
+            $table->integer('idEndereco')->unsigned();
+            $table->foreign('idEndereco')->references('id')->on('enderecos');
+            $table->timestamps();
         });
     }
     /**
