@@ -18,7 +18,7 @@ Empresas
                 <p>{{$empresa->endereco->cidade}} - {{$empresa->endereco->uf}} - {{$empresa->endereco->CEP}}</p>
                 <p>{{$empresa->telefone1}} / {{$empresa->telefone2}}</p>
                 <p>{{$empresa->email}}</p>
-                <p>CNPJ: {{$empresa->cnpj}}</p>
+                <p>CNPJ: {{$empresa->cpfcnpj}}</p>
                 <br>
                 <p>Responsável: {{$empresa->representante}}</p>
                 <p>Cadastro efetuado em: {{$empresa->created_at}}</p>
