@@ -20,8 +20,8 @@ class EmpresasController extends Controller
     }
 
     public function showOne(Empresa $empresa)
-    {
-        return view('empresas_mostrar');
+    {       
+        return view('empresas_mostrar',compact('empresa'));
     }
 
     public function create()
@@ -66,12 +66,39 @@ class EmpresasController extends Controller
     }
 
     public function runEdit(Request $request, Empresa $empresa)
-    {
-        echo 'ss';
-    	/*$empresa->update([
-    		// data
+    {        
+        $this->validate($request, [
+            'nome' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
+            'cep' => 'required|regex:/^[0-9]{5}\-[0-9]{3}$/',
+            'bairro' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
+            'rua' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
+            'numero' => 'required|numeric',
+            'cidade' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
+            'estado' => 'required|regex:/^[A-Z]{2}$/',
+            'telefone' => 'required|',
+            'email' => 'required|email',
+            'nome_rep' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',            
+            'cpfcnpj' => 'required',
+        ]);
+        
+        $empresa->endereco->update([
+            'CEP' => $request->cep,                
+            'rua' => $request->rua,
+            'numero' => $request->numero,
+            'bairro' => $request->bairro,
+            'cidade' => $request->cidade,
+            'uf' => $request->estado,
+        ]);
+
+    	$empresa->update([
+    		'nome' => $request->nome,                
+            'cpfcnpj' => $request->cpfcnpj,
+            'representante' => $request->nome_rep,        
+            'telefone1' => $request->telefone,
+            'email' => $request->email            
     	]);
-      return redirect('/empresas/' + $empresa->id);*/
+
+      return redirect('/empresas/');
     }
 
     public function runDelete(Request $request, Empresa $empresa)

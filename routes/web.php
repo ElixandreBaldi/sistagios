@@ -26,9 +26,9 @@ Route::group(['middleware' => ['auth']], function ()
         Route::get('/empresas', 'EmpresasController@show');
         Route::get('/empresas/criar', 'EmpresasController@create');
         Route::post('/empresas/criar', 'EmpresasController@runCreate');
-        Route::get('/empresas/{id}', 'EmpresasController@showOne');
-        Route::post('/empresas/{id}/editar', 'EmpresasController@runEdit');
-        Route::post('/empresas/{id}/excluir', 'EmpresasController@runDelete');
+        Route::get('/empresas/{empresa}', 'EmpresasController@showOne');
+        Route::post('/empresas/{empresa}/editar', 'EmpresasController@runEdit');
+        Route::post('/empresas/{empresa}/excluir', 'EmpresasController@runDelete');
 
         /**
         * Alunos
