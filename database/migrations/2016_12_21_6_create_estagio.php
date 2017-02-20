@@ -21,6 +21,8 @@ class CreateEstagio extends Migration
             $table->decimal('bolsa',5,2);
             $table->boolean('aberta');
             $table->string('supervisor')->nullable();
+            $table->date('data_inicio')->nullable();
+            $table->date('data_fim')->nullable();
             $table->integer('idCurso')->unsigned();
             $table->foreign('idCurso')->references('id')->on('cursos');
             $table->integer('idEmpresa')->unsigned();

@@ -44,6 +44,8 @@ class EstagiosTableSeeder extends Seeder
             'bolsa' => '100.00',
             'aberta' => 0,
             'supervisor' => 'Héricles',
+            'data_inicio' => '2017-01-15',
+            'data_fim' => '2018-01-20',
             'idCurso' => 2,
             'idEmpresa' => 2,
             'idAluno' => 2
@@ -54,6 +56,8 @@ class EstagiosTableSeeder extends Seeder
             'bolsa' => '150.00',
             'aberta' => 0,
             'supervisor' => 'Santello',
+            'data_inicio' => '2016-10-10',
+            'data_fim' => '2018-10-10',
             'idCurso' => 1,
             'idEmpresa' => 1,
             'idAluno' => 1

@@ -19,9 +19,10 @@ class EstagiosController extends Controller
 
     public function showOne(Estagio $estagio)
     {
-        $empresas = Empresa::all();
-        $cursos = Curso::all();
-        return view('estagios_mostrar', compact('estagio', 'empresas', 'cursos'));
+        $empresas = Empresa::get(['id', 'nome']);
+        $cursos = Curso::get(['id', 'nome']);
+        $alunos = Aluno::get(['id', 'nome']);
+        return view('estagios_mostrar', compact('estagio', 'empresas', 'cursos', 'alunos'));
     }
 
     public function create()
@@ -33,7 +34,7 @@ class EstagiosController extends Controller
 
     public function runCreate(Request $request)
     {
-        Estagio::insert([
+        Estagio::create([
             'descricao' => $request->descricao,
             'setor' => $request->setor,
             'bolsa' => $request->bolsa,
@@ -62,5 +63,16 @@ class EstagiosController extends Controller
     {
         $deleted = $estagio->delete();
         return compact('deleted');
+    }
+
+    public function runAddAluno(Request $request, Estagio $estagio)
+    {
+        $estagio->update([
+            'idAluno' => $request->aluno,
+            'data_inicio' => $request->data_inicio,
+            'data_fim' => $request->data_fim,
+            'aberta' => 0
+        ]);
+      return redirect('/estagios/' . $estagio->id);
     }
 }

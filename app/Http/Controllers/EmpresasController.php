@@ -30,7 +30,7 @@ class EmpresasController extends Controller
     }
 
     public function runCreate(Request $request)
-    {            
+    {
         $this->validate($request, [
             'nome' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
             'cep' => 'required|regex:/^[0-9]{5}\-[0-9]{3}$/',
@@ -41,11 +41,11 @@ class EmpresasController extends Controller
             'estado' => 'required|regex:/^[A-Z]{2}$/',
             'telefone' => 'required|',
             'email' => 'required|email',
-            'nome_rep' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',            
+            'nome_rep' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
             'cpfcnpj' => 'required',
-        ]);        
+        ]);
         $idEndereco = Endereco::insertGetId([
-                'CEP' => $request->cep,                
+                'CEP' => $request->cep,
                 'rua' => $request->rua,
                 'numero' => $request->numero,
                 'bairro' => $request->bairro,
@@ -53,14 +53,14 @@ class EmpresasController extends Controller
                 'uf' => $request->estado,
             ]);
 
-        Empresa::insert([
-                'nome' => $request->nome,                
+        Empresa::create([
+                'nome' => $request->nome,
                 'cpfcnpj' => $request->cpfcnpj,
                 'telefone1' => $request->telefone,
                 'email' => $request->email,
-                'representante' => $request->nome_rep,     
+                'representante' => $request->nome_rep,
                 'idEndereco' => $idEndereco,
-            ]);        
+            ]);
 
       return redirect('/empresas');
     }

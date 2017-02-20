@@ -43,7 +43,7 @@ class AlunosController extends Controller
             'cidade' => $request->cidade,
             'uf' => $request->estado
         ]);
-    	Aluno::insert([
+    	Aluno::create([
             'nome' => $request->nome,
             'telefone' => $request->fone,
             'rg' => $request->rg,
