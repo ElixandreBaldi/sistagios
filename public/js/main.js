@@ -17,6 +17,23 @@ function excluir (id, entity_url) {
 	}
 }
 
+function removeAluno (estagio_id) {
+	// exemplo: entity_url = 'professores'
+	if (confirm("Tem certeza de que deseja remover o aluno deste estágio? A vaga passará a ficar aberta.")) {
+			$.ajax({
+	    	url: '/estagios/' + estagio_id + '/reset',
+	    	type: 'POST',
+	    	data: {
+	    		_token: CSRF_TOKEN
+	    	},
+	    	dataType: 'JSON',
+	    	success: function (data) {
+	        	window.location='/estagios/' + estagio_id;
+	    	}
+		});
+	}
+}
+
 function limitarInput(obj, lim) {
     obj.value = obj.value.substring(0,lim);
 }
@@ -25,7 +42,7 @@ function mascaraCpf( campo, e )
 {
     var kC = (document.all) ? event.keyCode : e.keyCode;
     var data = campo.value;
-    
+
     if( kC != 46 && kC != 8 )
     {
         if( data.length==3){
@@ -33,23 +50,23 @@ function mascaraCpf( campo, e )
         }
         else if( data.length==7 ){
             campo.value = data += '.';
-        }        
+        }
         else if(data.length == 11){
         	campo.value = data+='-';
         }
         else if(data.length == 14){
-        	var texto = mascaraCnpj(campo.value, e);        
+        	var texto = mascaraCnpj(campo.value, e);
         	campo.value = data = texto;
         }else if(data.length == 15){
         	campo.value = data+='-';
-        }   
-    }                  
+        }
+    }
 }
 function mascaraCnpj( campo, e )
 {
     var texto = new Array();
 
-    for (var i = 0; i < campo.length; i++) { 
+    for (var i = 0; i < campo.length; i++) {
     	if(campo[i]>0 && campo[i]<10)
     	texto.push(campo[i]);
     }
