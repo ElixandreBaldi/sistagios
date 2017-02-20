@@ -109,7 +109,7 @@ Atualizar Estágio
         </div>
         @else
         <div class="col-md-1">
-            <button type="button" class="btn btn-danger">Remover aluno</button>
+            <button type="button" class="btn btn-danger" onclick="removeAluno({{$estagio->id}})">Remover aluno</button>
         </div>
         @endif
     </form>

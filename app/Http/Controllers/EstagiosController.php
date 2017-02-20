@@ -75,4 +75,15 @@ class EstagiosController extends Controller
         ]);
       return redirect('/estagios/' . $estagio->id);
     }
+
+    public function runRemoveAluno(Request $request, Estagio $estagio)
+    {
+        $removed = $estagio->update([
+            'idAluno' => null,
+            'data_inicio' => null,
+            'data_fim' => null,
+            'aberta' => 1
+        ]);
+        return compact('removed');
+    }
 }
