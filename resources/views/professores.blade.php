@@ -17,7 +17,7 @@ Professores
                     <div class="modal-body col-md-12">
                         <div class="form-group col-md-12">
                             <label for="nome">NOME</label>
-                            <input type="text" class="form-control" id="nome" name="nome">
+                            <input type="text" class="form-control" value="{{old('nome')}}" onkeypress="somenteLetras( this )" required="required" id="nome" name="nome">
                             @if ($errors->has('nome'))
                               <span class="help-block">
                                   <strong>{{ $errors->first('nome') }}</strong>
@@ -26,7 +26,7 @@ Professores
                         </div>
                         <div class="form-group col-md-12">
                             <label for="email">E-MAIL</label>
-                            <input type="text" class="form-control" id="email" name="email">
+                            <input type="email" class="form-control" required="required" value="{{old('email')}}" id="email" name="email">
                             @if ($errors->has('email'))
                               <span class="help-block">
                                   <strong>{{ $errors->first('email') }}</strong>

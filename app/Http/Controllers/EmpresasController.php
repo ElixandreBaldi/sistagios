@@ -103,7 +103,9 @@ class EmpresasController extends Controller
 
     public function runDelete(Request $request, Empresa $empresa)
     {
-    	$empresa->delete();
-      return redirect('/empresas');
+        $end = $empresa->idEndereco;                
+        $deleted = $empresa->delete();
+        Endereco::where('id', $end)->delete();
+        return compact('deleted');
     }
 }

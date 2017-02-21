@@ -13,7 +13,7 @@ Editar Professor
         <div class="modal-body col-md-12">
             <div class="form-group col-md-12">
                 <label for="nome">NOME</label>
-                <input type="text" class="form-control" value="{{$professor -> nome}}" id="nome" name="nome">
+                <input type="text" class="form-control" value="{{$professor -> nome}}" onkeypress="somenteLetras( this )" id="nome" name="nome" required="required">
                 @if ($errors->has('nome'))
                   <span class="help-block">
                       <strong>{{ $errors->first('nome') }}</strong>
@@ -22,7 +22,7 @@ Editar Professor
             </div>
             <div class="form-group col-md-12">
                 <label for="email">E-MAIL</label>
-                <input type="text" class="form-control" value="{{$professor -> email}}" id="email" name="email">
+                <input type="email" class="form-control" value="{{$professor -> email}}" id="email" name="email" required="required">
                 @if ($errors->has('email'))
                   <span class="help-block">
                       <strong>{{ $errors->first('email') }}</strong>

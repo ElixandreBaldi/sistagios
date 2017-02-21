@@ -90,7 +90,7 @@ class CursosController extends Controller
     public function runCreateProfessor(Request $request)
     {
         $this->validate($request, [
-            'nome' => 'required|max:255',
+            'nome' => 'required|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/|max:255',
             'email' => 'required|email|unique:professores',             
         ]);
     	Professor::insert([
@@ -106,7 +106,7 @@ class CursosController extends Controller
 
     public function runEditProfessor(Request $request, Professor $professor){
         $this->validate($request, [
-            'nome' => 'required|max:255',
+            'nome' => 'required|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/|max:255',
             'email' => 'required|email',             
         ]);
         $professor->update([

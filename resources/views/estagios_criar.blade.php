@@ -12,7 +12,7 @@ Criar Aluno
         {{csrf_field()}}
         <div class="form-group col-md-8">
             <label for="descricao">DESCRIÇÃO</label>
-            <input type="text" class="form-control" id="descricao" name="descricao">
+            <input required="required" type="text" class="form-control" id="descricao" name="descricao">
         </div>
         <div class="form-group col-md-4">
             <label for="empresa">EMPRESA</label>
@@ -24,15 +24,15 @@ Criar Aluno
         </div>
         <div class="form-group col-md-3">
           <label for="setor">SETOR</label>
-          <input type="text" class="form-control" name="setor" id="setor">
+          <input required="required" type="text" class="form-control" name="setor" id="setor">
         </div>
         <div class="form-group col-md-4">
           <label for="supervisor">SUPERVISOR</label>
-          <input type="text" class="form-control" name="supervisor" id="supervisor">
+          <input required="required" type="text" class="form-control" name="supervisor" id="supervisor">
         </div>
         <div class="form-group col-md-2">
           <label for="bolsa">BOLSA</label>
-          <input type="number" class="form-control" name="bolsa" id="bolsa">
+          <input type="number" required="required" class="form-control" name="bolsa" id="bolsa">
         </div>
         <div class="form-group col-md-3">
             <label for="curso">CURSO</label>

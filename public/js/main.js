@@ -149,3 +149,8 @@ function pesquisacep(valor) {
         limpa_formulário_cep();
     }
 }
+
+function somenteLetras(input){
+    var regex = /[^A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ \( \)]/gi;
+    input.value = input.value.replace(regex, "");
+}
