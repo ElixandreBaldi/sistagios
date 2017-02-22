@@ -12,7 +12,7 @@ Criar Curso
     {{csrf_field()}}
     <div class="form-group col-md-6">
       <label for="nome">NOME</label>
-      <input type="text" required="required" value="{{old('nome')}}" class="form-control" id="nome" name="nome">
+      <input type="text" required="required" value="{{old('nome')}}" class="form-control" id="nome" name="nome" autofocus>
       @if ($errors->has('nome'))
           <span class="help-block">
               <strong>{{ $errors->first('nome') }}</strong>
@@ -34,7 +34,7 @@ Criar Curso
       <label for="estado">Coordenador</label>
       <select class="form-control" name="coordenador">
       @foreach ($professores as $professor)
-        <option value="{{$professor->id}}">{{$professor->nome}}</option>  
+        <option value="{{$professor->id}}">{{$professor->nome}}</option>
       @endforeach
       </select>
       @if ($errors->has('coordenador'))
@@ -42,7 +42,7 @@ Criar Curso
               <strong>{{ $errors->first('coordenador') }}</strong>
           </span>
       @endif
-    </div>    
+    </div>
     <br/>
     <div class="col-md-12">
       <button type="submit" class="btn btn-default">Cadastrar</button>

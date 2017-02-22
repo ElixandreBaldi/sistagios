@@ -12,7 +12,7 @@ Criar Aluno
         {{csrf_field()}}
         <div class="form-group col-md-6">
             <label for="nome">NOME</label>
-            <input type="text" class="form-control" onkeypress="somenteLetras( this )" value="{{old('nome')}}" id="nome" name="nome" required="required">
+            <input type="text" class="form-control" onkeypress="somenteLetras( this )" value="{{old('nome')}}" id="nome" name="nome" required="required" autofocus>
         </div>
         <div class="form-group col-md-3">
           <label for="cep">CEP</label>

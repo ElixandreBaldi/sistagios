@@ -12,7 +12,7 @@ Criar Aluno
         {{csrf_field()}}
         <div class="form-group col-md-8">
             <label for="descricao">DESCRIÇÃO</label>
-            <input required="required" type="text" class="form-control" id="descricao" name="descricao">
+            <input required="required" type="text" class="form-control" id="descricao" name="descricao" autofocus>
         </div>
         <div class="form-group col-md-4">
             <label for="empresa">EMPRESA</label>

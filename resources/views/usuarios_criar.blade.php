@@ -10,9 +10,9 @@ Criar Usuário
     <h3 class="titulo_area">Cadastrar Usuário</h3>
     <form role="form" method="POST" action="/usuarios/criar">
         {{ csrf_field() }}
-        <div class="form-group col-md-12">              
+        <div class="form-group col-md-12">
             <label for="nome">NOME</label>
-            <input type="text" class="form-control" id="nome" name="name" value="">
+            <input type="text" class="form-control" id="nome" name="name" value="" autofocus>
             @if ($errors->has('name'))
                 <span class="help-block">
                     <strong>{{ $errors->first('name') }}</strong>

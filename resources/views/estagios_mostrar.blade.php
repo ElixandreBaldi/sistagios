@@ -43,7 +43,7 @@ Atualizar Estágio
         {{csrf_field()}}
         <div class="form-group col-md-12">
             <label for="descricao">DESCRIÇÃO</label>
-            <input type="text" class="form-control" id="descricao" name="descricao" value="{{$estagio->descricao}}">
+            <input type="text" class="form-control" id="descricao" name="descricao" value="{{$estagio->descricao}}" autofocus>
         </div>
         <div class="form-group col-md-4">
             <label for="empresa">EMPRESA</label>

@@ -7,43 +7,43 @@ Empresa: Nome
 @section('conteudo')
   <div class="row content">
     <button onclick="window.location.href='/empresas'" class="btn btn-primary"><span class="glyphicon glyphicon-circle-arrow-left"></span> Voltar</button>
-    <h3 class="titulo_area">{{$empresa->nome}}</h3>      
+    <h3 class="titulo_area">{{$empresa->nome}}</h3>
     <form action="/empresas/{{$empresa->id}}/editar" method="POST">
-      {{ csrf_field() }}    
+      {{ csrf_field() }}
       <div class="form-group col-md-6">
-        <label for="nome">NOME</label>      
-        <input type="text" required="required" onkeypress="somenteLetras( this )" class="form-control" name="nome" value="{{ $empresa->nome }}" id="nome">
+        <label for="nome">NOME</label>
+        <input type="text" required="required" onkeypress="somenteLetras( this )" class="form-control" name="nome" value="{{ $empresa->nome }}" id="nome" autofocus>
       </div>
-      <div class="form-group col-md-3">      
-        <label for="cep">CEP</label>            
-        <input type="text" required="required" onblur="pesquisacep(this.value);" onkeypress="mascaraCep( this, event )" onkeyup="limitarInput(this, 9)" onblur="pesquisacep(this.value);" value="{{ $empresa->endereco->CEP }}" name="cep" class="form-control" id="cep">      
+      <div class="form-group col-md-3">
+        <label for="cep">CEP</label>
+        <input type="text" required="required" onblur="pesquisacep(this.value);" onkeypress="mascaraCep( this, event )" onkeyup="limitarInput(this, 9)" onblur="pesquisacep(this.value);" value="{{ $empresa->endereco->CEP }}" name="cep" class="form-control" id="cep">
       </div>
       <div class="form-group col-md-3">
         <label for="bairro">BAIRRO</label>
         <input type="text" required="required" class="form-control" value="{{ $empresa->endereco->bairro }}" name="bairro" id="bairro">
-      </div>  
+      </div>
       <div class="col-md-12">
         <div class="col-md-6">
           @if ($errors->has('nome'))
             <span class="help-block">
                 <strong>{{ $errors->first('nome') }}</strong>
-            </span>        
+            </span>
           @endif
         </div>
-        <div class="col-md-3">  
+        <div class="col-md-3">
           @if ($errors->has('cep'))
             <span class="help-block">
                 <strong>{{ $errors->first('cep') }}</strong>
-            </span>        
+            </span>
           @endif
         </div>
-        <div class="col-md-3">  
+        <div class="col-md-3">
           @if ($errors->has('bairro'))
             <span class="help-block">
                 <strong>{{ $errors->first('bairro') }}</strong>
-            </span>        
+            </span>
           @endif
-        </div>      
+        </div>
       </div>
       <div class="form-group col-md-6">
         <label for="rua">RUA</label>
@@ -56,40 +56,40 @@ Empresa: Nome
       <div class="form-group col-md-3">
         <label for="cidade">CIDADE</label>
         <input type="text" required="required" class="form-control" name="cidade" value="{{ $empresa->endereco->cidade }}" id="cidade">
-      </div>  
+      </div>
       <div class="form-group col-md-1">
         <label for="estado">ESTADO</label>
-        <input type="text" required="required" class="form-control" id="estado" value="{{ $empresa->endereco->uf }}" name="estado" maxlength=2>      
+        <input type="text" required="required" class="form-control" id="estado" value="{{ $empresa->endereco->uf }}" name="estado" maxlength=2>
       </div>
       <div class="col-md-12">
         <div class="col-md-6">
           @if ($errors->has('rua'))
             <span class="help-block">
                 <strong>{{ $errors->first('rua') }}</strong>
-            </span>        
+            </span>
           @endif
         </div>
-        <div class="col-md-2">  
+        <div class="col-md-2">
           @if ($errors->has('numero'))
             <span class="help-block">
                 <strong>{{ $errors->first('numero') }}</strong>
-            </span>        
+            </span>
           @endif
         </div>
-        <div class="col-md-3">  
+        <div class="col-md-3">
           @if ($errors->has('cidade'))
             <span class="help-block">
                 <strong>{{ $errors->first('cidade') }}</strong>
-            </span>        
+            </span>
           @endif
-        </div>      
-        <div class="col-md-1">  
+        </div>
+        <div class="col-md-1">
           @if ($errors->has('estado'))
             <span class="help-block">
                 <strong>{{ $errors->first('estado') }}</strong>
-            </span>        
+            </span>
           @endif
-        </div>            
+        </div>
       </div>
       <div class="form-group col-md-4">
         <label for="nome">TELEFONE</label>
@@ -108,31 +108,31 @@ Empresa: Nome
           @if ($errors->has('telefone'))
             <span class="help-block">
                 <strong>{{ $errors->first('telefone') }}</strong>
-            </span>        
+            </span>
           @endif
         </div>
-        <div class="col-md-4">  
+        <div class="col-md-4">
           @if ($errors->has('email'))
             <span class="help-block">
                 <strong>{{ $errors->first('email') }}</strong>
-            </span>        
+            </span>
           @endif
         </div>
-        <div class="col-md-4">  
+        <div class="col-md-4">
           @if ($errors->has('nome_rep'))
             <span class="help-block">
                 <strong>{{ $errors->first('nome_rep') }}</strong>
-            </span>        
+            </span>
           @endif
-        </div>      
+        </div>
       </div>
       <div class="form-group col-md-12">
         <label for="nome">CPF ou CNPJ</label>
-        <input type="text" class="form-control" value="{{ $empresa->cpfcnpj }}" onkeypress="mascaraCpf( this, event )" required="required" onkeyup="limitarInput(this, 18)" aria-label="..." name="cpfcnpj">      
+        <input type="text" class="form-control" value="{{ $empresa->cpfcnpj }}" onkeypress="mascaraCpf( this, event )" required="required" onkeyup="limitarInput(this, 18)" aria-label="..." name="cpfcnpj">
       </div>
       <div class="col-md-6">
         <button type="submit" class="btn btn-default">Atualizar</button>
-      </div>          
+      </div>
     </form>
   </div>
 

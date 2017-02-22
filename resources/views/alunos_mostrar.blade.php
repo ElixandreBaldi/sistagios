@@ -12,7 +12,7 @@ Aluno: {{$aluno->nome}}
         {{csrf_field()}}
         <div class="form-group col-md-6">
             <label for="nome">NOME</label>
-            <input type="text" required="required" onkeypress="somenteLetras( this )" class="form-control" id="nome" name="nome" value="{{$aluno->nome}}">
+            <input type="text" required="required" onkeypress="somenteLetras( this )" class="form-control" id="nome" name="nome" value="{{$aluno->nome}}" autofocus>
         </div>
         <div class="form-group col-md-3">
           <label for="cep">CEP</label>
@@ -133,7 +133,7 @@ Aluno: {{$aluno->nome}}
                   <strong>{{ $errors->first('rg') }}</strong>
               </span>
             @endif
-          </div>          
+          </div>
           <div class="col-md-1">
             @if ($errors->has('estado'))
               <span class="help-block">
@@ -141,7 +141,7 @@ Aluno: {{$aluno->nome}}
               </span>
             @endif
           </div>
-        </div>      
+        </div>
         <div class="col-md-6">
             <button type="submit" class="btn btn-default">Atualizar</button>
         </div>
