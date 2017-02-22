@@ -61,11 +61,12 @@ class EstagiosController extends Controller
         $this->validate($request, [
             'descricao' => 'required',
             'setor' => 'required',
-            'bolsa' => 'number|required',
+            'bolsa' => 'numeric|required',
             'supervisor' => 'required',
-            'idCurso' => 'required',
-            'idEmpresa' => 'required',
+            'curso' => 'required',
+            'empresa' => 'required',
         ]);
+
         Estagio::create([
             'descricao' => $request->descricao,
             'setor' => $request->setor,
@@ -89,12 +90,11 @@ class EstagiosController extends Controller
         $this->validate($request, [
             'descricao' => 'required',
             'setor' => 'required',
-            'bolsa' => 'number|required',
+            'bolsa' => 'numeric|required',
             'supervisor' => 'required',
-            'idCurso' => 'required',
-            'idEmpresa' => 'required',
+            'curso' => 'required',
+            'empresa' => 'required',
         ]);
-
         $estagio->update([
             'descricao' => $request->descricao,
             'setor' => $request->setor,
@@ -126,6 +126,7 @@ class EstagiosController extends Controller
     */
     public function runAddAluno(Request $request, Estagio $estagio)
     {
+        if ($request->data_fim == '') $request->data_fim = NULL;
         $estagio->update([
             'idAluno' => $request->aluno,
             'data_inicio' => $request->data_inicio,

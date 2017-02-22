@@ -27,7 +27,7 @@ Atualizar Estágio
                     <input required="required" type="date" class="form-control" id="data_inicio"  name="data_inicio" value="{{date('Y-m-d')}}">
                     <br>
                     <label for="aluno">FIM</label>
-                    <input required="required" type="date" class="form-control" id="data_fim" name="data_fim">
+                    <input type="date" class="form-control" id="data_fim" name="data_fim">
                     <br>
                     <button type="submit" class="btn btn-default">Empregar</button>
                 </div>

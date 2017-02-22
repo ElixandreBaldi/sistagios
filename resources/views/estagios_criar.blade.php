@@ -12,7 +12,7 @@ Criar Aluno
         {{csrf_field()}}
         <div class="form-group col-md-8">
             <label for="descricao">DESCRIÇÃO</label>
-            <input required="required" type="text" class="form-control" id="descricao" name="descricao" autofocus>
+            <input required="required" value="{{old('descricao')}}" type="text" class="form-control" id="descricao" name="descricao" autofocus>
         </div>
         <div class="form-group col-md-4">
             <label for="empresa">EMPRESA</label>
@@ -22,17 +22,26 @@ Criar Aluno
             @endforeach
             </select>
         </div>
+        <div class="col-md-12">
+          <div class="col-md-8">
+            @if ($errors->has('descricao'))
+              <span class="help-block">
+                  <strong>{{ $errors->first('descricao') }}</strong>
+              </span>
+            @endif
+          </div>
+        </div>
         <div class="form-group col-md-3">
           <label for="setor">SETOR</label>
-          <input required="required" type="text" class="form-control" name="setor" id="setor">
+          <input required="required" type="text" value="{{old('setor')}}" class="form-control" name="setor" id="setor">
         </div>
         <div class="form-group col-md-4">
           <label for="supervisor">SUPERVISOR</label>
-          <input required="required" type="text" class="form-control" name="supervisor" id="supervisor">
+          <input required="required" type="text" value="{{old('supervisor')}}" class="form-control" name="supervisor" id="supervisor">
         </div>
         <div class="form-group col-md-2">
           <label for="bolsa">BOLSA</label>
-          <input type="number" required="required" class="form-control" name="bolsa" id="bolsa">
+          <input type="text" required="required" value="{{old('bolsa')}}" class="form-control" name="bolsa" id="bolsa">
         </div>
         <div class="form-group col-md-3">
             <label for="curso">CURSO</label>
@@ -41,6 +50,29 @@ Criar Aluno
                 <option value="{{$curso->id}}">{{$curso->nome}}</option>
             @endforeach
             </select>
+        </div>
+        <div class="col-md-12">
+          <div class="col-md-3">
+            @if ($errors->has('setor'))
+              <span class="help-block">
+                  <strong>{{ $errors->first('setor') }}</strong>
+              </span>
+            @endif
+          </div>
+          <div class="col-md-4">
+            @if ($errors->has('supervisor'))
+              <span class="help-block">
+                  <strong>{{ $errors->first('supervisor') }}</strong>
+              </span>
+            @endif
+          </div>
+          <div class="col-md-4">
+            @if ($errors->has('bolsa'))
+              <span class="help-block">
+                  <strong>{{ $errors->first('bolsa') }}</strong>
+              </span>
+            @endif
+          </div>
         </div>
         <div class="col-md-6">
             <button type="submit" class="btn btn-default">Cadastrar</button>
