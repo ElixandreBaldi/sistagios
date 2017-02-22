@@ -20,7 +20,7 @@ Menu
             </a>
         </div>
         <div class="col-md-4">
-            <a href="relatorios" class="thumbnail">
+            <a class="thumbnail" onclick="alert('Em breve!');">
                 <img src="img/relatorio.png" alt="Relatórios">
                 <h3>Relatórios</h3>
             </a>

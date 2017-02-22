@@ -12,7 +12,10 @@ function excluir (id, entity_url) {
 	    	dataType: 'JSON',
 	    	success: function (data) {
 	        	window.location='/' + entity_url;
-	    	}
+	    	},
+            error: function (data) {
+                alert('Houve um erro ao excluir esta entidade. Verifique se a mesma não está sendo usada em outra parte do sistema.');
+            }
 		});
 	}
 }
@@ -52,7 +55,7 @@ function mascaraRg( campo, e )
         }
         else if(data.length == 10){
             campo.value = data+='-';
-        }        
+        }
     }
 }
 function mascaraCpfApenas( campo, e )
@@ -70,7 +73,7 @@ function mascaraCpfApenas( campo, e )
         }
         else if(data.length == 11){
             campo.value = data+='-';
-        }        
+        }
     }
 }
 function mascaraCpf( campo, e )
@@ -199,12 +202,12 @@ function mascaraCep( campo, e )
 {
     var kC = (document.all) ? event.keyCode : e.keyCode;
     var data = campo.value;
-    
+
     if( kC!=8 && kC!=46 )
     {
         if( data.length==5){
             campo.value = data += '-';
-        }        
+        }
     }
 }
 
@@ -212,7 +215,7 @@ function mascaraFone( campo, e )
 {
     var kC = (document.all) ? event.keyCode : e.keyCode;
     var data = campo.value;
-    
+
     if( kC!=8 && kC!=46 )
     {
         if( data.length==0){
@@ -221,11 +224,11 @@ function mascaraFone( campo, e )
         if( data.length==3 )
         {
             campo.value = data += ') 9 ';
-        }   
+        }
         if( data.length==11)
         {
             campo.value = data += '-';
-        }     
+        }
         else
             campo.value = data;
     }
