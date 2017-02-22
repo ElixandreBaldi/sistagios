@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Empresa extends Model
 {
     protected $table = 'empresas';
-    protected $fillable = ['nome','cpfcnpj','representante','telefone1','telefone2','email'];
+    protected $fillable = ['nome','cpfcnpj','representante','telefone1','telefone2','email','idEndereco'];
     public $timestamps = true;
 
     public function endereco() {

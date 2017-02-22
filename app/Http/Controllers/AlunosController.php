@@ -35,6 +35,20 @@ class AlunosController extends Controller
 
     public function runCreate(Request $request)
     {
+        $this->validate($request, [
+            'nome' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
+            'cep' => 'required|regex:/^[0-9]{5}\-[0-9]{3}$/',
+            'bairro' => 'required|max:255',
+            'rua' => 'required|max:255',
+            'numero' => 'required|numeric',
+            'cidade' => 'required|max:255',
+            'estado' => 'required|regex:/^[A-Z]{2}$/',
+            'telefone' => 'required',
+            'email' => 'required|email',            
+            'cpf' => 'required|cpfcnpj',
+            'rg' => 'required|regex:/^[0-9]{2}\.[0-9]{3}\.[0-9]{3}\-[0-9]{1}$/'
+        ]);
+
         $endereco = Endereco::insertGetId([
             'CEP' => $request->cep,
             'rua' => $request->rua,
@@ -57,6 +71,20 @@ class AlunosController extends Controller
 
     public function runEdit(Request $request, Aluno $aluno)
     {
+        $this->validate($request, [
+            'nome' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
+            'cep' => 'required|regex:/^[0-9]{5}\-[0-9]{3}$/',
+            'bairro' => 'required|max:255',
+            'rua' => 'required|max:255',
+            'numero' => 'required|numeric',
+            'cidade' => 'required|max:255',
+            'estado' => 'required|regex:/^[A-Z]{2}$/',
+            'telefone' => 'required',
+            'email' => 'required|email',            
+            'cpf' => 'required|cpfcnpj',
+            'rg' => 'required|regex:/^[0-9]{2}\.[0-9]{3}\.[0-9]{3}\-[0-9]{1}$/'
+        ]);
+        
         $aluno->endereco()->update([
             'CEP' => $request->cep,
             'rua' => $request->rua,

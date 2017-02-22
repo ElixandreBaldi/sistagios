@@ -37,7 +37,42 @@ function removeAluno (estagio_id) {
 function limitarInput(obj, lim) {
     obj.value = obj.value.substring(0,lim);
 }
+function mascaraRg( campo, e )
+{
+    var kC = (document.all) ? event.keyCode : e.keyCode;
+    var data = campo.value;
 
+    if( kC != 46 && kC != 8 )
+    {
+        if( data.length==2){
+            campo.value = data += '.';
+        }
+        else if( data.length==6 ){
+            campo.value = data += '.';
+        }
+        else if(data.length == 10){
+            campo.value = data+='-';
+        }        
+    }
+}
+function mascaraCpfApenas( campo, e )
+{
+    var kC = (document.all) ? event.keyCode : e.keyCode;
+    var data = campo.value;
+
+    if( kC != 46 && kC != 8 )
+    {
+        if( data.length==3){
+            campo.value = data += '.';
+        }
+        else if( data.length==7 ){
+            campo.value = data += '.';
+        }
+        else if(data.length == 11){
+            campo.value = data+='-';
+        }        
+    }
+}
 function mascaraCpf( campo, e )
 {
     var kC = (document.all) ? event.keyCode : e.keyCode;
@@ -153,4 +188,45 @@ function pesquisacep(valor) {
 function somenteLetras(input){
     var regex = /[^A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ \( \)]/gi;
     input.value = input.value.replace(regex, "");
+}
+
+function somenteNumeros(input){
+    var regex = /[^0-9 \( \)]/gi;
+    input.value = input.value.replace(regex, "");
+}
+
+function mascaraCep( campo, e )
+{
+    var kC = (document.all) ? event.keyCode : e.keyCode;
+    var data = campo.value;
+    
+    if( kC!=8 && kC!=46 )
+    {
+        if( data.length==5){
+            campo.value = data += '-';
+        }        
+    }
+}
+
+function mascaraFone( campo, e )
+{
+    var kC = (document.all) ? event.keyCode : e.keyCode;
+    var data = campo.value;
+    
+    if( kC!=8 && kC!=46 )
+    {
+        if( data.length==0){
+            campo.value = data += '(';
+        }
+        if( data.length==3 )
+        {
+            campo.value = data += ') 9 ';
+        }   
+        if( data.length==11)
+        {
+            campo.value = data += '-';
+        }     
+        else
+            campo.value = data;
+    }
 }

@@ -12,7 +12,7 @@ Criar Curso
     {{csrf_field()}}
     <div class="form-group col-md-6">
       <label for="nome">NOME</label>
-      <input type="text" class="form-control" id="nome" name="nome">
+      <input type="text" required="required" value="{{old('nome')}}" class="form-control" id="nome" name="nome">
       @if ($errors->has('nome'))
           <span class="help-block">
               <strong>{{ $errors->first('nome') }}</strong>

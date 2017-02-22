@@ -12,15 +12,15 @@ Criar Aluno
         {{csrf_field()}}
         <div class="form-group col-md-6">
             <label for="nome">NOME</label>
-            <input type="text" class="form-control" id="nome" name="nome">
+            <input type="text" class="form-control" onkeypress="somenteLetras( this )" value="{{old('nome')}}" id="nome" name="nome" required="required">
         </div>
         <div class="form-group col-md-3">
           <label for="cep">CEP</label>
-          <input type="text" onblur="pesquisacep(this.value);" name="cep" class="form-control" id="cep">
+          <input type="text" onblur="pesquisacep(this.value);" onkeypress="mascaraCep( this, event )" onkeyup="limitarInput(this, 9)" value="{{old('cep')}}" required="required" name="cep" class="form-control" id="cep">
         </div>
         <div class="form-group col-md-3">
           <label for="bairro">BAIRRO</label>
-          <input type="text" class="form-control" name="bairro" id="bairro">
+          <input type="text" class="form-control" required="required" value="{{old('bairro')}}" name="bairro" id="bairro">
         </div>
         <div class="col-md-12">
           <div class="col-md-6">
@@ -47,19 +47,19 @@ Criar Aluno
         </div>
         <div class="form-group col-md-6">
           <label for="rua">RUA</label>
-          <input type="text" class="form-control" name="rua" id="rua">
+          <input type="text" class="form-control" required="required" value="{{old('rua')}}" name="rua" id="rua">
         </div>
         <div class="form-group col-md-2">
           <label for="numero">NÚMERO</label>
-          <input type="number" class="form-control" name="numero" id="numero">
+          <input type="number" class="form-control" required="required" value="{{old('numero')}}" name="numero" id="numero">
         </div>
         <div class="form-group col-md-3">
           <label for="cidade">CIDADE</label>
-          <input type="text" class="form-control" name="cidade" id="cidade">
+          <input type="text" class="form-control" required="required" value="{{old('cidade')}}" name="cidade" id="cidade">
         </div>
         <div class="form-group col-md-1">
           <label for="estado">ESTADO</label>
-          <input type="text" class="form-control" id="estado" name="estado" maxlength=2>
+          <input type="text" class="form-control" required="required" value="{{old('estado')}}" id="estado" name="estado" maxlength=2>
         </div>
         <div class="col-md-12">
           <div class="col-md-6">
@@ -93,11 +93,11 @@ Criar Aluno
         </div>
         <div class="form-group col-md-4">
           <label for="nome">TELEFONE</label>
-          <input type="text" class="form-control" name="fone" id="fone">
+          <input type="text" class="form-control" required="required" value="{{old('telefone')}}" onkeypress="mascaraFone( this, event )" onkeyup="limitarInput(this, 16)" name="fone" id="fone">
         </div>
         <div class="form-group col-md-4">
           <label for="nome">E-MAIL</label>
-          <input type="email" class="form-control" name="email" id="email">
+          <input type="email" required="required" value="{{old('email')}}" class="form-control" name="email" id="email">
         </div>
         <div class="form-group col-md-4">
             <label for="nome">CURSO</label>
@@ -109,11 +109,11 @@ Criar Aluno
         </div>
         <div class="form-group col-md-6">
             <label for="nome">CPF</label>
-            <input type="text" class="form-control"name="cpf">
+            <input type="text" value="{{old('cpf')}}" onkeypress="mascaraCpfApenas( this, event )" required="required" onkeyup="limitarInput(this, 14)" class="form-control" name="cpf">
         </div>
         <div class="form-group col-md-6">
             <label for="nome">RG</label>
-            <input type="text" class="form-control"name="rg">
+            <input type="text" class="form-control" value="{{old('rg')}}" onkeypress="mascaraRg( this, event )" required="required" onkeyup="limitarInput(this, 12)" name="rg">
         </div>
         <div class="col-md-6">
             <button type="submit" class="btn btn-default">Cadastrar</button>

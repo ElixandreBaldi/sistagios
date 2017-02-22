@@ -34,15 +34,15 @@ class EmpresasController extends Controller
         $this->validate($request, [
             'nome' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
             'cep' => 'required|regex:/^[0-9]{5}\-[0-9]{3}$/',
-            'bairro' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
-            'rua' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
+            'bairro' => 'required|max:255',
+            'rua' => 'required|max:255',
             'numero' => 'required|numeric',
-            'cidade' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
+            'cidade' => 'required|max:255',
             'estado' => 'required|regex:/^[A-Z]{2}$/',
-            'telefone' => 'required|',
+            'telefone' => 'required',
             'email' => 'required|email',
             'nome_rep' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
-            'cpfcnpj' => 'required',
+            'cpfcnpj' => 'required|cpfcnpj',
         ]);
         $idEndereco = Endereco::insertGetId([
                 'CEP' => $request->cep,
@@ -52,7 +52,7 @@ class EmpresasController extends Controller
                 'cidade' => $request->cidade,
                 'uf' => $request->estado,
             ]);
-
+                    
         Empresa::create([
                 'nome' => $request->nome,
                 'cpfcnpj' => $request->cpfcnpj,
@@ -70,15 +70,15 @@ class EmpresasController extends Controller
         $this->validate($request, [
             'nome' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
             'cep' => 'required|regex:/^[0-9]{5}\-[0-9]{3}$/',
-            'bairro' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
-            'rua' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
+            'bairro' => 'required|max:255',
+            'rua' => 'required|max:255',
             'numero' => 'required|numeric',
-            'cidade' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
+            'cidade' => 'required|max:255',
             'estado' => 'required|regex:/^[A-Z]{2}$/',
-            'telefone' => 'required|',
+            'telefone' => 'required',
             'email' => 'required|email',
-            'nome_rep' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',            
-            'cpfcnpj' => 'required',
+            'nome_rep' => 'required|max:255|regex:/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/',
+            'cpfcnpj' => 'required|cpfcnpj',
         ]);
         
         $empresa->endereco->update([
