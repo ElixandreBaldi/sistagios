@@ -8,8 +8,17 @@ use App\Aluno;
 use App\Curso;
 use App\Endereco;
 
+/**
+* Controlador central das funções de Aluno
+* @author Elixandre Baldi, Luiz Rosa, Victor Pozzan
+* @version 1.0
+*/
 class AlunosController extends Controller
 {
+    /**
+    * Função que mostra a listagem de alunos na view.
+    * @return Illuminate\Http\Response
+    */
     public function show()
     {
         $alunos = Aluno::all();
@@ -20,6 +29,11 @@ class AlunosController extends Controller
         return view('alunos', compact('alunos'));
     }
 
+    /**
+    * Função que mostra um aluno específico na view.
+    * @param App\Aluno
+    * @return Illuminate\Http\Response
+    */
     public function showOne(Aluno $aluno)
     {
         $cursos = Curso::all();
@@ -27,12 +41,21 @@ class AlunosController extends Controller
         return view('alunos_mostrar', compact('cursos', 'aluno'));
     }
 
+    /**
+    * Função que mostra o formulário de criação de alunos na view.
+    * @return Illuminate\Http\Response
+    */
     public function create()
     {
         $cursos = Curso::all();
     	return view('alunos_criar', compact('cursos'));
     }
 
+    /**
+    * Função que executa a criação de um aluno.
+    * @param Illuminate\Support\Facades\Request
+    * @return Illuminate\Http\RedirectResponse
+    */
     public function runCreate(Request $request)
     {
         $this->validate($request, [
@@ -44,7 +67,7 @@ class AlunosController extends Controller
             'cidade' => 'required|max:255',
             'estado' => 'required|regex:/^[A-Z]{2}$/',
             'telefone' => 'required',
-            'email' => 'required|email',            
+            'email' => 'required|email',
             'cpf' => 'required|cpfcnpj',
             'rg' => 'required|regex:/^[0-9]{2}\.[0-9]{3}\.[0-9]{3}\-[0-9]{1}$/'
         ]);
@@ -69,6 +92,12 @@ class AlunosController extends Controller
       return redirect('/alunos');
     }
 
+    /**
+    * Função que executa a edição de um aluno.
+    * @param Illuminate\Support\Facades\Request
+    * @param App\Aluno
+    * @return Illuminate\Http\RedirectResponse
+    */
     public function runEdit(Request $request, Aluno $aluno)
     {
         $this->validate($request, [
@@ -80,11 +109,10 @@ class AlunosController extends Controller
             'cidade' => 'required|max:255',
             'estado' => 'required|regex:/^[A-Z]{2}$/',
             'telefone' => 'required',
-            'email' => 'required|email',            
+            'email' => 'required|email',
             'cpf' => 'required|cpfcnpj',
             'rg' => 'required|regex:/^[0-9]{2}\.[0-9]{3}\.[0-9]{3}\-[0-9]{1}$/'
         ]);
-        
         $aluno->endereco()->update([
             'CEP' => $request->cep,
             'rua' => $request->rua,
@@ -104,6 +132,12 @@ class AlunosController extends Controller
       return redirect('/alunos');
     }
 
+    /**
+    * Função que executa a exclusão de um aluno.
+    * @param Illuminate\Support\Facades\Request
+    * @param App\Aluno
+    * @return array
+    */
     public function runDelete(Request $request, Aluno $aluno)
     {
         $end = $aluno->idEndereco;

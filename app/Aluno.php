@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 * @author Elixandre Baldi, Luiz Rosa, Victor Pozzan
 * @version 1.0
 */
-
 class Aluno extends Model
 {
     public $timestamps = true;

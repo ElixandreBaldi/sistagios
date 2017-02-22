@@ -6,19 +6,17 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Estagio;
 
+/**
+* Controlador central de funções genéricas como tela inicial e login.
+* @author Elixandre Baldi, Luiz Rosa, Victor Pozzan
+* @version 1.0
+*/
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Função que mostra o início a aplicação.
+    * @return Illuminate\Http\Response
+    */
     public function index()
     {
         $vagasAbertas = Estagio::where('aberta', 1)->get();
@@ -29,11 +27,19 @@ class HomeController extends Controller
         return view('index', compact('vagasAbertas'));
     }
 
+    /**
+    * Função que mostra o menu principal da aplicação.
+    * @return Illuminate\Http\Response
+    */
     public function menu()
     {
         return view('menu');
     }
 
+    /**
+    * Função que executa o logout do usuário da aplicação.
+    * @return Illuminate\Http\RedirectResponse
+    */
     public function logout()
     {
         Auth::logout();
