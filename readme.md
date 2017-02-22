@@ -3,14 +3,17 @@
 O sistema SiSagios é construído por sobre o framework PHP “Laravel 5.3”. Toda a instalação é baseada na documentação oficial do framework, que pode ser encontrada em https://laravel.com/docs/5.3/installation. Os passos descritos neste tutorial são válidos para Windows, Linux e Mac OS.
 
 1. Softwares pré-requisito.
+
 O único software necessário para a instalação do sistema é o PHP 5.6 ou superior. Não é objetivo deste manual descrever a instalação do mesmo. Um tutorial mais detalhado para cada plataforma pode ser encontrado em https://secure.php.net/manual/pt_BR/install.php.  
 
 2. Softwares de instalação de pacotes.
+
 Alguns softwares são necessários para uma experiência de instalação mais tranquila e prazerosa. Estes softwares são gerenciadores de pacotes que permitem uma instalação completa do sistema sem ter de baixar nada via FTP ou navegador. Após a instalação, estes podem ser removidos, todavia, recomenda-se que sejam mantidos afim de manter o sistema sempre atualizado. São estes:
 Git – Software gerenciador de versão, com ele será possível baixar cada versão do sistema de forma simples. A instalação do mesmo para múltiplas plataformas é descrita em: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git.
 Composer – Software gerenciador de pacotes PHP. É com ele que todas as dependências do framework são adicionadas, instaladas e atualizadas. Este software pode ser instalado seguindo a descrição encontrada em: https://getcomposer.org/download/. 
 
-3. Instalação
+3. Instalação.
+
 A instalação é muito simples:
   3.1.  Navegue até a raiz onde deseja instalar o sistema.
   3.2.  Execute o comando `git clone  https://github.com/luizguilhermefr/sistagios` (isso fará o download do sistema sem as dependências do framework).
